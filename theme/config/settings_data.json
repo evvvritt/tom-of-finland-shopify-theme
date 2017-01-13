@@ -1,0 +1,23 @@
+{
+  "current": "Default",
+  "presets": {
+    "Default": {
+      "ajax_cart_method": "page",
+      "cart_notes_enable": true,
+      "color_body_bg": "#fff",
+      "color_body_text": "#333333",
+      "color_borders": "#333333",
+      "color_footer_bg": "#333333",
+      "color_footer_social_link": "white",
+      "color_footer_text": "#333333",
+      "color_primary": "#333333",
+      "color_secondary": "#333333",
+      "favicon_enable": false,
+      "footer_newsletter_enable": true,
+      "footer_social_enable": true,
+      "logo_use_image": false,
+      "social_facebook_link": "",
+      "social_twitter_link": ""
+    }
+  }
+}
