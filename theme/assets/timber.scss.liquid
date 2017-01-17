@@ -105,9 +105,9 @@ $colorBody: {{ settings.color_body_bg }};
 // Border colors
 $colorBorder: {{ settings.color_borders }};
 
-// Nav and dropdown link background
-$colorNav: transparent; //#f2f2f2;
-$colorNavText: white; //#333;
+// Site Header
+$colorHeaderBg: {{ settings.color_header_bg }};
+$colorHeaderText: {{ settings.color_header_text }};
 
 // Site Footer
 $colorFooterBg: {{ settings.color_footer_bg }};
@@ -1766,6 +1766,8 @@ label.error {
   #Site Header
 ==============================================================================*/
 .site-header {
+  background: $colorHeaderBg;
+  color: $colorHeaderText;
   padding: ($gutter / 2) 0;
 
   .grid--table {
@@ -1838,7 +1840,7 @@ label.error {
 }
 
 .site-nav {
-  font-size: em(16px);
+  //font-size: em(16px);
   cursor: default;
   margin: 0 0 0 (-$gutter / 2);
 
@@ -1867,12 +1869,12 @@ label.error {
   text-decoration: none;
   padding: $gutter / 2;
   white-space: nowrap;
-  color: $colorNavText;
+  //color: $colorNavText;
 
   &:hover,
   &:active,
   &:focus {
-    color: darken($colorNavText, 15%);
+    //color: darken($colorNavText, 15%);
   }
 
   .icon-arrow-down {
@@ -1906,12 +1908,12 @@ label.error {
   }
 
   a {
-    background-color: $colorNav;
+    //background-color: $colorNav;
 
     &:hover,
     &:active,
     &:focus {
-      background-color: darken($colorNav, 10%);
+      //background-color: darken($colorNav, 10%);
     }
   }
 }
