@@ -1700,7 +1700,8 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   font-family: "Yantramanav", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 700;
   margin: 0 0 0.5em;
-  line-height: 1.4; }
+  line-height: 1.4;
+  text-transform: uppercase; }
   h1 a, .h1 a, h2 a, .h2 a, h3 a, .h3 a, h4 a, .h4 a, h5 a, .h5 a, h6 a, .h6 a {
     text-decoration: none;
     font-weight: inherit; }
@@ -2484,6 +2485,9 @@ ol.alpha {
   .grid__image img {
     display: block;
     margin: 0 auto; }
+
+.grid__item__title {
+  text-align: center; }
 
 /*============================================================================
   #Collection Filters
