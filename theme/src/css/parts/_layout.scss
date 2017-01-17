@@ -4,7 +4,7 @@
 .site-header {
   background: $colorHeaderBg;
   color: $colorHeaderText;
-  padding: ($gutter / 2) 0;
+  padding:0;
 
   .grid--table {
     display: table;
@@ -16,6 +16,10 @@
       display: table-cell;
       vertical-align: middle;
     }
+  }
+
+  @media (max-width:$medium){
+    padding-top: ($gutter / 2);
   }
 }
 
@@ -32,6 +36,12 @@
   a:hover,
   a:focus {
     text-decoration: none;
+    color:$colorNavText;
+    text-transform: uppercase;
+    font-size: 3em;
+    font-weight: 900;
+    letter-spacing: $tracking-l;
+    line-height: 1;
   }
 
   a, img {
@@ -50,6 +60,10 @@
 
 .site-header__cart-toggle {
   display: inline-block;
+  color:$colorNavText;
+  #CartCount{
+    color:$colorBtnPrimaryActive;
+  }
 }
 
 .site-header__search {
@@ -98,6 +112,10 @@
   .text-right & {
     margin: 0 (-$gutter / 2) 0 0;
   }
+
+  .icon-cart{
+    font-size:69%;
+  }
 }
 
 .site-nav__link {
@@ -105,7 +123,10 @@
   text-decoration: none;
   padding: $gutter / 2;
   white-space: nowrap;
-  //color: $colorNavText;
+  color: $colorNavText;
+  font-weight:900;
+  text-transform: uppercase;
+  letter-spacing:$tracking-l;
 
   &:hover,
   &:active,
@@ -136,6 +157,7 @@
   left: 0;
   margin: 0;
   z-index: $zindexNavDropdowns;
+  background:$colorHeaderBg;
 
   .supports-no-touch .site-nav--has-dropdown:hover &,
   .site-nav--has-dropdown.nav-hover &,
@@ -152,6 +174,10 @@
       //background-color: darken($colorNav, 10%);
     }
   }
+}
+
+#CartCount {
+  color:red;
 }
 
 /*================ Search bar in header ================*/
@@ -299,11 +325,87 @@
 ==============================================================================*/
 .site-footer {
   background-color: $colorFooterBg;
-  padding: $gutter 0;
+  padding: $gutter/3 0;
   color: $colorFooterText;
 
-  @include at-query ($min, $large) {
-    padding: ($gutter * 2) 0;
+  .social-icons{
+    display: inline-block;
+    margin:0;
+    li{
+      margin-right: $gutter/6;
+    }
+    a{
+      padding: $gutter/3 0;
+      display:inline-block;
+    }
+  }
+
+  #contact_form{
+    max-width:220px;
+    padding:$gutter/2 0;
+    margin-right:$gutter;
+    display: inline-block;
+    vertical-align: middle;
+    input{
+      font-weight: 900;
+      letter-spacing: $tracking-l !important;
+      text-transform: uppercase;
+      vertical-align: middle;
+      height:1.5em;
+      line-height: 1.5;
+      padding:0.25em;
+      border-radius:0;
+    }
+    input[type="email"]{      
+      &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+        color: $colorTextBody;
+      }
+      &::-moz-placeholder { /* Firefox 19+ */
+        color: $colorTextBody;
+      }
+      &:-ms-input-placeholder { /* IE 10+ */
+        color: $colorTextBody;
+      }
+      &:-moz-placeholder { /* Firefox 18- */
+        color: $colorTextBody;
+      }
+    }
+    input[type="submit"]{
+      padding-left:1.5em;
+      background:transparent;
+    }
+  }
+}
+
+.site-footer-nav{
+  > ul{
+    list-style-type: none;
+    margin:0;
+    > li{
+      display:inline-block;
+    }
+  }
+  .site-nav__link{
+    display: inline-block;
+  }
+}
+
+@media (max-width:$medium) {
+  .site-footer{
+    padding:$gutter/2 0;
+  }
+  .site-footer .social-icons, 
+  .site-footer #contact_form, 
+  .site-footer-nav > ul > li{
+    display: block;
+  }
+
+  .site-footer-nav > ul > li{
+    padding:0;
+    margin-bottom: 1em;
+    a {
+      padding:0;
+    }
   }
 }
 

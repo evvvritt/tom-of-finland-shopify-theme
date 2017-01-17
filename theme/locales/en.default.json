@@ -13,8 +13,8 @@
       "home_link_title": "Back to the home page"
     },
     "newsletter_form": {
-      "newsletter_email": "email@example.com",
-      "submit": "Subscribe",
+      "newsletter_email": "EMAIL",
+      "submit": "Sign Up",
       "confirmation": "Thanks for subscribing"
     },
     "search": {

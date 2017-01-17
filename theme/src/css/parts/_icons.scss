@@ -40,7 +40,7 @@
 .icon-american_express:before { content: "\41"; }
 .icon-arrow-down:before { content: "\e607"; }
 .icon-bitcoin:before { content: "\42"; }
-.icon-cart:before { content: "\e600"; }
+//.icon-cart:before { content: "\e600"; }
 .icon-cirrus:before { content: "\43"; }
 .icon-dankort:before { content: "\64"; }
 .icon-diners_club:before { content: "\63"; }
@@ -74,6 +74,19 @@
 .icon-x:before { content: "\e606"; }
 .icon-youtube:before { content: "\79"; }
 
+.icon-cart{
+  &:before{
+    content:'';
+    background-image:url('icon-buttplug.png');
+    background-size:contain;
+    background-repeat:no-repeat;
+    width:1.5em;
+    height:2.5em;
+    display: inline-block !important;
+    vertical-align: middle;
+  }
+}
+
 .payment-icons {
   @include user-select(none);
   cursor: default;
@@ -95,7 +108,7 @@
 }
 
 .social-icons li {
-  margin: 0 ($gutter / 2) ($gutter / 2);
+  margin: 0;
   vertical-align: middle;
 
   @include at-query ($min, $postSmall) {
@@ -103,8 +116,8 @@
   }
 
   .icon {
-    font-size: 30px;
-    line-height: 26px;
+    font-size: 2em;
+    line-height: 0.86em;
   }
 
   a {

@@ -32,8 +32,8 @@ $colorSecondary: #333; //{{ settings.color_secondary }};
 
 // Button colors
 $colorBtnPrimary: $colorPrimary;
-$colorBtnPrimaryHover: darken($colorBtnPrimary, 10%);
-$colorBtnPrimaryActive: darken($colorBtnPrimaryHover, 10%);
+$colorBtnPrimaryHover: $colorPrimary; //darken($colorBtnPrimary, 10%);
+$colorBtnPrimaryActive: red; //darken($colorBtnPrimaryHover, 10%);
 $colorBtnPrimaryText: #fff;
 
 $colorBtnSecondary: $colorSecondary;
@@ -46,10 +46,10 @@ $colorLink: $colorPrimary;
 $colorLinkHover: lighten($colorPrimary, 15%);
 
 // Text colors
-$colorTextBody: #333; //{{ settings.color_body_text }};
+$colorTextBody: black; //{{ settings.color_body_text }};
 
 // Backgrounds
-$colorBody: #333; //{{ settings.color_body_bg }};
+$colorBody: white; //{{ settings.color_body_bg }};
 
 // Border colors
 $colorBorder: #333; //{{ settings.color_borders }};
@@ -57,6 +57,7 @@ $colorBorder: #333; //{{ settings.color_borders }};
 // Site Header
 $colorHeaderBg: black; //{{ settings.color_header_bg }};
 $colorHeaderText: white; //{{ settings.color_header_text }};
+$colorNavText: white;
 
 // Site Footer
 $colorFooterBg: black; //{{ settings.color_footer_bg }};
@@ -83,7 +84,7 @@ $drawerTransition: all 0.4s cubic-bezier(0.46, 0.01, 0.32, 1);
 
 // Sizing variables
 $siteWidth: 1180px;
-$gutter: 30px;
+$gutter: 3em;
 $gridGutter: 30px; // can be a %, but nested grids will have smaller margins because of it
 $radius: 3px;
 
@@ -98,6 +99,10 @@ $headerFontWeight: 700;
 
 $bodyFontStack: 'Yantramanav', 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $baseFontSize: 10px; // Henceforth known as 1em
+
+// letter-spacing
+$tracking-s:0.025em;
+$tracking-l:0.1em;
 
 @font-face {
   font-family: 'icons';
