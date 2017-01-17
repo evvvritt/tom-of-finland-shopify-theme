@@ -1255,7 +1255,8 @@ input[type="search"]::-webkit-search-decoration {
   #Basic Styles
 ==============================================================================*/
 html {
-  background-color: black; }
+  background-color: black;
+  font-size: 10px; }
 
 body {
   background-color: white; }
@@ -1265,7 +1266,7 @@ body {
 
 .wrapper {
   *zoom: 1;
-  max-width: 1180px;
+  max-width: 1115px;
   margin: 0 auto;
   padding: 0 1.5em; }
   .wrapper:after {
@@ -1502,8 +1503,8 @@ textarea,
 select {
   border: 1px solid #333;
   max-width: 100%;
-  padding: 8px 10px;
-  border-radius: 3px; }
+  padding: 0.8rem 1rem;
+  border-radius: 0; }
   input:focus,
   textarea:focus,
   select:focus {
@@ -1553,7 +1554,6 @@ select {
   background-repeat: no-repeat;
   background-position: right 10px center;
   background-color: transparent;
-  padding-right: 28px;
   text-indent: 0.01px;
   text-overflow: '';
   cursor: pointer;
@@ -1631,13 +1631,13 @@ label.error {
   .input-group input[type="hidden"]:first-child + .input-group-btn > .btn--secondary,
   .input-group
   .rte input[type="hidden"]:first-child + .input-group-btn > .btn--secondary {
-    border-radius: 3px 0 0 3px; }
+    border-radius: 0 0 0 0; }
   .input-group .input-group-field:last-child,
   .input-group .input-group-btn:last-child > .btn,
   .input-group .input-group-btn:last-child > .btn--secondary,
   .input-group
   .rte .input-group-btn:last-child > .btn--secondary {
-    border-radius: 0 3px 3px 0; }
+    border-radius: 0 0 0 0; }
   .input-group input::-moz-focus-inner {
     border: 0;
     padding: 0;
@@ -1687,7 +1687,7 @@ textarea,
 button,
 select {
   font-size: 10px;
-  line-height: 1.6;
+  line-height: 1.3;
   font-family: "Yantramanav", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: black;
   font-weight: 300;
@@ -1832,7 +1832,7 @@ hr {
 .collection-view {
   display: inline-block;
   border: 1px solid #333;
-  border-radius: 3px;
+  border-radius: 0;
   padding: 0 5px;
   height: 37px;
   overflow: hidden;
@@ -1918,7 +1918,7 @@ html input[disabled] {
   user-select: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-  border-radius: 3px;
+  border-radius: 0;
   /*================ Set primary button colors - can override later ================*/
   background-color: #333;
   color: #fff; }
@@ -2505,6 +2505,44 @@ ol.alpha {
 /*============================================================================
   #Product Page
 ==============================================================================*/
+.product-single h1, .product-single .h1 {
+  font-size: 2em;
+  letter-spacing: 0.025em;
+  margin-bottom: 1.2em;
+  text-transform: uppercase; }
+
+.product-single .product-description {
+  text-transform: uppercase;
+  margin-bottom: 1em; }
+
+.product-single .price-wrapper {
+  margin-bottom: 3.5em;
+  display: block; }
+
+.product-single .quantity-wrapper {
+  display: inline-block;
+  width: 33%; }
+
+.product-single label {
+  text-transform: uppercase;
+  line-height: 2.25; }
+
+.product-single #AddToCart {
+  display: block;
+  font-size: 1.1em;
+  width: 100%;
+  text-transform: uppercase; }
+
+.product-single .social-icons {
+  display: inline-block;
+  width: 66%;
+  margin-bottom: 0;
+  text-align: right; }
+  .product-single .social-icons li {
+    margin-left: 1em; }
+    .product-single .social-icons li a {
+      color: black; }
+
 .product-single__variants {
   display: none; }
   .no-js .product-single__variants {
@@ -2528,7 +2566,7 @@ ol.alpha {
 ==============================================================================*/
 .note,
 .errors {
-  border-radius: 3px;
+  border-radius: 0;
   padding: 6px 12px;
   margin-bottom: 1.5em;
   border: 1px solid transparent;

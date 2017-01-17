@@ -26,6 +26,9 @@ $breakpoint-has-pull:  ('medium', 'medium-down', 'large');
   #General Variables
 ==============================================================================*/
 
+// Rem
+$rem: 10px;
+
 // Timber Colors
 $colorPrimary: #333; //{{ settings.color_primary }};
 $colorSecondary: #333; //{{ settings.color_secondary }};
@@ -83,10 +86,10 @@ $colorDrawerText: #333;
 $drawerTransition: all 0.4s cubic-bezier(0.46, 0.01, 0.32, 1);
 
 // Sizing variables
-$siteWidth: 1180px;
+$siteWidth: 1115px;
 $gutter: 3em;
 $gridGutter: 30px; // can be a %, but nested grids will have smaller margins because of it
-$radius: 3px;
+$radius: 0; //3px;
 
 // Z-index
 $zindexNavDropdowns: 5;

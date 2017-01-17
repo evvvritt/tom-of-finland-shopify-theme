@@ -3,6 +3,7 @@
 ==============================================================================*/
 html {
   background-color: $colorFooterBg;
+  font-size:$rem; 
 }
 
 body {
@@ -308,7 +309,7 @@ textarea,
 select {
   border: 1px solid $colorBorder;
   max-width: 100%;
-  padding: 8px 10px;
+  padding: 0.8rem 1rem;
   border-radius: $radius;
 
   &:focus {
@@ -366,7 +367,7 @@ select {
     position: right 10px center;
     color: transparent;
   }
-  padding-right: 28px;
+  //padding-right: 28px;
   text-indent: 0.01px;
   text-overflow: '';
   cursor: pointer;

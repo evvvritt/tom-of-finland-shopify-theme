@@ -451,6 +451,62 @@
 /*============================================================================
   #Product Page
 ==============================================================================*/
+.product-single{
+  h1 {
+    font-size: 2em;
+    letter-spacing: $tracking-s;
+    margin-bottom: 1.2em;
+    text-transform: uppercase;
+  }
+  .product-description {
+    text-transform: uppercase;
+    margin-bottom: 1em;
+  }
+  .price-wrapper{
+    margin-bottom: 3.5em;
+    display: block;
+  }
+  //.selector-wrapper{
+    //display: inline-block;
+    //width:33%;
+    //select{
+      //width:100%;
+      //padding-left:1em;
+      //padding-right:1em;
+    //}
+  //}
+  .quantity-wrapper{
+    display: inline-block;
+    width: 33%;
+    //input{
+      //width: 100%;
+      //text-align: right;
+    //}
+  }
+  label{
+    text-transform: uppercase;
+    line-height: 2.25;
+  }
+  #AddToCart{
+    display: block;
+    font-size: 1.1em;
+    width: 100%;
+    text-transform: uppercase;
+  }
+  .social-icons {
+    display: inline-block;
+    width:66%;
+    margin-bottom: 0;
+    text-align: right;
+    li {
+      margin-left:$gutter/3;
+      a{
+        color:$colorTextBody;
+      }
+    }
+  }
+}
+
 .product-single__variants {
   display: none;
 
