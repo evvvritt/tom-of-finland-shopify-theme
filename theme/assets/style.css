@@ -2448,7 +2448,10 @@ ol.alpha {
       color: black; }
     .site-footer #contact_form input[type="submit"] {
       padding-left: 1.5em;
-      background: transparent; }
+      background: transparent;
+      vertical-align: middle;
+      padding: 0;
+      padding-left: 1.25em; }
 
 .site-footer-nav > ul {
   list-style-type: none;
