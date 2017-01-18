@@ -31,12 +31,12 @@ $rem: 10px;
 
 // Timber Colors
 $colorPrimary: #333; //{{ settings.color_primary }};
-$colorSecondary: #333; //{{ settings.color_secondary }};
+$colorSecondary: red; //{{ settings.color_secondary }};
 
 // Button colors
 $colorBtnPrimary: $colorPrimary;
 $colorBtnPrimaryHover: $colorPrimary; //darken($colorBtnPrimary, 10%);
-$colorBtnPrimaryActive: red; //darken($colorBtnPrimaryHover, 10%);
+$colorBtnPrimaryActive: $colorSecondary; //darken($colorBtnPrimaryHover, 10%);
 $colorBtnPrimaryText: #fff;
 
 $colorBtnSecondary: $colorSecondary;
@@ -47,6 +47,7 @@ $colorBtnSecondaryText: #fff;
 // Text link colors
 $colorLink: $colorPrimary;
 $colorLinkHover: lighten($colorPrimary, 15%);
+$colorLinkActive: $colorSecondary;
 
 // Text colors
 $colorTextBody: black; //{{ settings.color_body_text }};

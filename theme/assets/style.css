@@ -1886,10 +1886,13 @@ a,
   color: #333;
   text-decoration: none;
   background: transparent; }
-
-a:hover,
-a:focus {
-  color: #595959; }
+  a:hover, a:focus,
+  .text-link:hover,
+  .text-link:focus {
+    color: #595959; }
+  a:active,
+  .text-link:active {
+    color: red; }
 
 button {
   overflow: visible; }
@@ -1941,15 +1944,15 @@ html input[disabled] {
 
 .btn--secondary,
 .rte .btn--secondary {
-  background-color: #333; }
+  background-color: red; }
   .btn--secondary:hover,
   .rte .btn--secondary:hover {
-    background-color: #1a1a1a;
+    background-color: #cc0000;
     color: #fff; }
   .btn--secondary:active, .btn--secondary:focus,
   .rte .btn--secondary:active,
   .rte .btn--secondary:focus {
-    background-color: black;
+    background-color: #990000;
     color: #fff; }
 
 .btn--small {
@@ -2497,9 +2500,15 @@ ol.alpha {
   .grid__image img {
     display: block;
     margin: 0 auto; }
+  .grid__image:active + .grid__item__title a {
+    color: red; }
 
 .grid__item__title {
   text-align: center; }
+  .supports-no-touch .grid__item__title {
+    visibility: hidden; }
+  .supports-no-touch .grid__item:hover .grid__item__title {
+    visibility: visible; }
 
 /*============================================================================
   #Collection Filters

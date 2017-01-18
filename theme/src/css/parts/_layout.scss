@@ -437,10 +437,21 @@
     display: block;
     margin: 0 auto;
   }
+
+  &:active + .grid__item__title a{
+    color:$colorLinkActive
+  }
 }
 
 .grid__item__title{
   text-align: center;
+  // hover
+  .supports-no-touch &{
+    visibility: hidden;
+  }
+  .supports-no-touch .grid__item:hover &{
+    visibility: visible;
+  }
 }
 
 /*============================================================================

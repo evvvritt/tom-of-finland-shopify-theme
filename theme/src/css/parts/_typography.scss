@@ -287,11 +287,12 @@ a,
   color: $colorLink;
   text-decoration: none;
   background: transparent;
-}
-
-a:hover,
-a:focus {
-  color: $colorLinkHover;
+  &:hover,&:focus{
+    color: $colorLinkHover;
+  }
+  &:active{
+    color: $colorLinkActive;
+  }
 }
 
 button {
