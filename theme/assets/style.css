@@ -2488,7 +2488,8 @@ ol.alpha {
     display: table;
     clear: both; }
   .supports-js .grid-chaos .grid__item {
-    opacity: 0; }
+    opacity: 0;
+    padding: 3em; }
 
 .grid__image {
   display: block;
