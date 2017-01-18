@@ -12,13 +12,12 @@
   each other properly at each breakpoint.
 {% endcomment %}
 <div class="grid-chaos">
-  <div class="grid-sizer"></div>
 
   {% comment %}
     Loop through products in your Frontpage collection.
     This collection is created by default, but you must add products to it.
   {% endcomment %}
-  {% for product in collections.frontpage.products limit:30 %}
+  {% for product in collections.frontpage.products limit:6 %}
 
     {% comment %}
       Change the grid item width by using classes from the grid in

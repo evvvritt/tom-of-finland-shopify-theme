@@ -2479,6 +2479,16 @@ ol.alpha {
 /*============================================================================
   #Product and Collection Grids
 ==============================================================================*/
+.supports-js .grid-chaos {
+  position: relative;
+  width: 88%;
+  min-height: 60vh;
+  *zoom: 1; }
+  .supports-js .grid-chaos:after {
+    content: '';
+    display: table;
+    clear: both; }
+
 .grid__image {
   display: block;
   margin: 0 auto 1.5em; }

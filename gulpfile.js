@@ -21,7 +21,7 @@ var bump = require('gulp-bump');
 // Source paths
 var js = {
       src: ['theme/src/js/*.coffee', 'theme/src/js/*.js'],
-      dest: 'theme/assets/js',
+      dest: 'theme/assets',
       watch: ['theme/src/js/**/*.coffee','theme/src/js/**/*.js']
     },
     css = {
