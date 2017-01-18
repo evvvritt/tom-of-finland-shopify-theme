@@ -32,12 +32,12 @@ $(function(){
         ////'nine-tenths',
         //'one-twelfth',
         'two-twelfths',
+        //'three-twelfths',
         'three-twelfths',
-        'three-twelfths',
-        'four-twelfths',
+        //'four-twelfths',
         'four-twelfths',
         'five-twelfths',
-        //'six-twelfths',
+        'six-twelfths',
         //'seven-twelfths',
         //'eight-twelfths'
       ];
@@ -86,54 +86,112 @@ $(function(){
       var grid = $('.grid-chaos');
       var items = grid.children('.large--one-quarter');
 
-      //// re-size using classes
-      //items.each(function(){
-        //var $this = $(this);
-        //var randIndex = randomIntFromInterval(0, widths.length - 1);
-        //// re-generate sizes
-        //$this
-          //.removeClass('large--one-quarter')
-          //.addClass('large--'+widths[randIndex])
-          ////.css('padding',function(){
-            ////return randomIntFromInterval(3,8) + 'em';
-          ////});
-      //});
+      var min_x = 0;
+      var max_x = grid.width();
+      var item_x = min_x;
+      var item_y = 0;
+      var rows = [[]];
+
+      var check_last_row = function(item_width) { 
+        var y = false;
+        // only loop through the first row which is the previous row
+        for (var i = 0; i < rows[0].length; i++) {
+            
+          row_item = rows[0][i];
+
+          // use max_x if last item in row
+          barrier = i === rows[0].length - 1 ? max_x : row_item.offset_x;
+          
+          // skip if starts past the edge
+          if ( item_x > barrier ) { console.log('skip');
+            continue; 
+          }
+
+          // if fits, get y value
+          if ( item_width < ( barrier - item_x ) || item_width < row_item) {
+            y = row_item.bottom_y;
+            break;
+          }
+        }
+        return y;
+      }
+
+      // re-size using classes
+      var maxItemWidth = max_x/3.5 > 600 ? max_x/3 : 600;
+      items.each(function(){
+        var $this = $(this);
+        var randIndex = randomIntFromInterval(0, widths.length - 1);
+        $this
+          .removeClass('large--one-quarter')
+          .css({
+            width: function(){
+              return randomIntFromInterval(parseInt(max_x/6), maxItemWidth);
+            },
+            padding: function(){
+              return randomIntFromInterval(1,2) + 'em';
+            }
+          });
+      });
 
       // shuffle items      
-      //items = shuffleArray(items);
+      items = shuffleArray(items);
 
       // position items
-      grid.imagesLoaded(function(){
+      grid.imagesLoaded(function(){ 
         
-        // lock height in
-        var grid_h = grid.height();
-        var grid_w = grid.width();
-        grid.css('height', grid_h);
+        var firstItem = true;
+        var grid_h = 0;
+        
+        // loop
+        items.each(function(index){ //console.log(index); //debugger;
+          var item = $(this);
+          var item_w = item.outerWidth(); //console.log(item.find('a').attr('href'));
+          var item_h = item.outerHeight();
+          var start_new_row = function() {
+            item_x = min_x; // reset x pos
+            rows.push([]); // add new row
+            if (rows.length > 2 ){
+              rows.shift(); 
+            }
+          }
 
-        // set up
-        var min_x = 0;
-        var max_x = grid_w;
-        var min_y = 0;
-        var max_y = grid_h * .75;
+          if (firstItem) {
+            item_x = firstItem ? randomIntFromInterval(0,(max_x - item_w)/3) : item_x;  
+            firstItem = false;
+          }
 
-        // position em
-        items.click(function(){
-          var $this = $(this);
-          var width = $this.width();
-          var height = $this.height();
-          var rand_x=0;
-          var rand_y=0;
-          var area;
-          do {
-              rand_x = randomIntFromInterval(min_x, max_x);
-              rand_y = randomIntFromInterval(min_y, max_y);
-              area = {x: rand_x, y: rand_y, width: width, height: height};
-          } while(check_overlap(area));
+          // new row ?
+          if (item_x + item_w > max_x) {
+            start_new_row(); console.log('start new row');
+          }
 
-          filled_areas.push(area);
-          // position it !
-          $(this).css({left:rand_x, top: rand_y, position: 'absolute'});
+          // if not first row, get y
+          if (rows.length > 1){
+            var useable_y = check_last_row(item_w);
+            if (useable_y === false){ console.log('cant fit');
+              start_new_row();
+              item_y = rows[0][0].bottom_y; // get bottom edge of first item in next row
+            } else {
+              item_y = useable_y;
+            }
+          }
+                    
+          // position it!
+          item.css({ position: 'absolute', left:item_x, top:item_y, opacity: 1 });
+
+          // store item in last row
+          var item_pos = { offset_x: item_x + item_w, bottom_y: item_y + item_h };
+          rows[rows.length-1].push(item_pos);
+          
+          // update vars
+          item_x = item_x + item_w;
+          grid_h = ( item_y + item_h ) > grid_h ? item_y + item_h : grid_h;
+
         });
+
+        // update grid height
+        grid.css('height',grid_h);
+
       });
 
     });
