@@ -64,9 +64,6 @@
     </div>
     <!-- begin mobile-nav -->
     <ul class="mobile-nav">
-      <li class="mobile-nav__item mobile-nav__search">
-        {% include 'search-bar' %}
-      </li>
       {% for link in linklists.main-menu.links %}
         {% comment %}
           Create a dropdown menu by naming a linklist the same as a link in the parent nav
@@ -260,7 +257,7 @@
 
     </header>    
 
-    <main class="wrapper main-content" role="main">
+    <main class="main-content clearfix" role="main">
 
       {{ content_for_layout }}
 
@@ -396,6 +393,113 @@
       });
     </script>
   {% endif %}
+  
+  {% if template != 'product' %}
+  <style>
+    .grid-chaos{
+      /*display: flex;*/
+      /*flex-wrap:wrap;*/
+      /*align-items:center;*/
+      /*justify-content:center;*/
+      padding:3em;
+    }
+    .grid-chaos .grid-sizer{
+      width:12%;
+    }
+    .grid-chaos .grid__item{
+      /*float:left;*/
+      padding-left:0 !important;
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.1.1/masonry.pkgd.min.js"></script>
+  <script>
+    $(function(){
+      var widths = [
+        //'one-third',
+        //'two-thirds',
+        //'one-quarter',
+        //'two-quarters',
+        ////'three-quarters',
+        //'one-fifth',
+        //'two-fifths',
+        ////'three-fifths',
+        ////'four-fifths',
+        //'one-sixth',
+        //'two-sixths',
+        ////'three-sixths',
+        ////'four-sixths',
+        ////'five-sixths',
+        ////'one-eighth',
+        //'two-eighths',
+        //'three-eighths',
+        ////'four-eighths',
+        ////'five-eighths',
+        ////'six-eighths',
+        ////'seven-eighths',
+        ////'one-tenth',
+        //'two-tenths',
+        //'three-tenths',
+        //'four-tenths',
+        ////'five-tenths',
+        ////'six-tenths',
+        ////'seven-tenths',
+        ////'eight-tenths',
+        ////'nine-tenths',
+        //'one-twelfth',
+        'two-twelfths',
+        'three-twelfths',
+        'four-twelfths',
+        'five-twelfths',
+        //'six-twelfths',
+        //'seven-twelfths',
+        //'eight-twelfths'
+      ];
+      var randomIntFromInterval = function(min,max)
+      {
+          return Math.floor(Math.random()*(max-min+1)+min);
+      }
+      /**
+       * Randomize array element order in-place.
+       * Using Durstenfeld shuffle algorithm.
+       */
+      function shuffleArray(d) {
+        for (var c = d.length - 1; c > 0; c--) {
+          var b = Math.floor(Math.random() * (c + 1));
+          var a = d[c];
+          d[c] = d[b];
+          d[b] = a;
+        }
+        return d
+      };
+
+      var items = $('.grid-chaos .large--one-quarter');
+      items.remove();
+      items = shuffleArray(items);
+      items.each(function(){
+        var $this = $(this);
+        var randIndex = randomIntFromInterval(0, widths.length);
+        $this
+          .removeClass('large--one-quarter')
+          .addClass('large--'+widths[randIndex])
+          .css('padding-top',function(){
+            return randomIntFromInterval(1,6) + 'em';
+          });
+        $this.prependTo('.grid-chaos');
+      });
+
+      // masonry
+      setTimeout(function(){
+        $('.grid-chaos').masonry({
+          itemSelector: '.grid_item',
+          //columnWidth: '12%'
+        });
+        console.log('masonry');
+      },2000);
+    });
+  </script>
+  {% endif %}
+
+  </script>
 
 </body>
 </html>
