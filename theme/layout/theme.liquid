@@ -395,12 +395,9 @@
   {% endif %}
   
   {% if template == 'index' or template == 'collection' %}
-  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.1.1/masonry.pkgd.min.js"></script>-->
   <script src="https://npmcdn.com/imagesloaded@4.1/imagesloaded.pkgd.min.js"></script>
   {{ 'app-grid-chaos.js' | asset_url | script_tag }}
   {% endif %}
-
-  </script>
 
 </body>
 </html>

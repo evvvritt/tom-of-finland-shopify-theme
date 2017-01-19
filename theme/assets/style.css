@@ -2548,9 +2548,16 @@ ol.alpha {
   margin-bottom: 3.5em;
   display: block; }
 
+.product-single .selector-wrapper {
+  display: inline-block;
+  width: 30%;
+  margin-right: 2%; }
+
 .product-single .quantity-wrapper {
   display: inline-block;
-  width: 33%; }
+  width: 30%; }
+  .product-single .quantity-wrapper button {
+    display: none !important; }
 
 .product-single label {
   text-transform: uppercase;
@@ -2564,13 +2571,20 @@ ol.alpha {
 
 .product-single .social-icons {
   display: inline-block;
-  width: 66%;
-  margin-bottom: 0;
+  width: 30%;
+  margin-bottom: 1em;
   text-align: right; }
   .product-single .social-icons li {
-    margin-left: 1em; }
+    margin: 0 .25em; }
+    .product-single .social-icons li:first-child {
+      margin-left: 0; }
     .product-single .social-icons li a {
       color: black; }
+  @media (max-width: 960px) and (min-width: 769px) {
+    .product-single .social-icons {
+      display: block;
+      width: 100%;
+      text-align: left; } }
 
 .product-single__variants {
   display: none; }
