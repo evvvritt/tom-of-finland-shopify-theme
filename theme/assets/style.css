@@ -2483,15 +2483,15 @@ ol.alpha {
   #Product and Collection Grids
 ==============================================================================*/
 @media (min-width: 769px) {
-  .supports-js .grid-random {
+  .supports-js .art-grid--enabled {
     position: relative;
     min-height: 60vh;
     *zoom: 1; }
-    .supports-js .grid-random:after {
+    .supports-js .art-grid--enabled:after {
       content: '';
       display: table;
       clear: both; }
-    .supports-js .grid-random .grid__item {
+    .supports-js .art-grid--enabled .grid__item {
       opacity: 0;
       padding: 3em; } }
 
