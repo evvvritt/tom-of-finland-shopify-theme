@@ -415,16 +415,18 @@
 /*============================================================================
   #Product and Collection Grids
 ==============================================================================*/
-.grid-chaos{
-  .supports-js &{
-    position:relative;
-    min-height:60vh;
-    @include clearfix();
-    .grid__item{
-      //position:absolute;
-      //visibility: hidden;
-      opacity:0;
-      padding:$gutter;
+.grid-random{
+  @media (min-width:$large) {
+    .supports-js &{
+      position:relative;
+      min-height:60vh;
+      @include clearfix();
+      .grid__item{
+        //position:absolute;
+        //visibility: hidden;
+        opacity:0;
+        padding:$gutter;
+      }
     }
   }
 }

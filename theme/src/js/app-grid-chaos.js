@@ -1,5 +1,7 @@
 $(function(){
 
+  if ( $(window).width() > 768 ) {
+
       var randomIntegerBt = function(min,max)
       {
           var integer = Math.floor(Math.random()*(max-min+1)+min);
@@ -22,7 +24,8 @@ $(function(){
       };
 
       // setup 
-      var grid = $('.grid-chaos');
+      var grid = $('.grid-random');
+      grid.removeClass('wrapper grid-uniform');
       var items = grid.children('.large--one-quarter');
 
       var min_x = 0;
@@ -142,4 +145,6 @@ $(function(){
 
       });
 
-    });
+  }
+
+});
