@@ -2547,10 +2547,8 @@ ol.alpha {
   font-size: 1.4em;
   font-weight: bold;
   margin-top: 6em; }
-  .template-page .main-content article header {
-    margin-bottom: 6.5em; }
   .template-page .main-content article section {
-    margin: 0 auto; }
+    margin: 6.5em auto; }
 
 /*============================================================================
   #Product Page
