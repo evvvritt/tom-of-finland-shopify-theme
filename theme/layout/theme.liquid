@@ -50,7 +50,7 @@
 {% comment %}
   Add the page template as a class for easy page or template specific styling.
 {% endcomment %}
-<body id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}" >
+<body id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }} colorbar-fixed" >
 
   <div id="NavDrawer" class="drawer drawer--left">
     <div class="drawer__header">
@@ -264,7 +264,8 @@
     </main>
 
     <!-- begin site-footer -->
-    <footer class="site-footer" role="contentinfo">
+    <div id="colorBar" class="colorbar" style="background-color: {{ collection.metafields.colors.accent }}"></div>
+    <footer id="siteFooter" class="site-footer" role="contentinfo">
       <div class="wrapper">
         <div class="grid">
           <!-- NEWSLETTER -->
@@ -351,6 +352,9 @@
     </footer>
     <!-- //site-footer -->
   </div>
+  <div id="colorBarFixed" class="colorbar" style="background-color: {{ collection.metafields.colors.accent }}"></div>
+
+  <!-- ASSETS -->
 
   {{ 'fastclick.min.js' | asset_url | script_tag }}
   {{ 'timber.js' | asset_url | script_tag }}
@@ -396,7 +400,7 @@
   
   {% if template == 'index' or template == 'collection' %}
   <script src="https://npmcdn.com/imagesloaded@4.1/imagesloaded.pkgd.min.js"></script>
-  {{ 'app-grid-chaos.js' | asset_url | script_tag }}
+  {{ 'app.js' | asset_url | script_tag }}
   {% endif %}
 
 </body>

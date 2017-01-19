@@ -1,5 +1,7 @@
 var app = {};
 
+app._body = $('body');
+
 app.utils = {
 
   randomIntegerBt: function (min, max) {
@@ -15,7 +17,6 @@ app.utils = {
     }
     return d;
   },
-
 };
 
 app.artGrid = {
@@ -147,6 +148,19 @@ app.artGrid = {
   },
 };
 
+app.colorBar = function (y) {
+  if ( y + $(window).height() < $('#siteFooter').offset().top ) {
+    app._body.addClass('colorbar-fixed');
+  } else {
+    app._body.removeClass('colorbar-fixed');
+  }
+};
+
+app.scrollHandler = function () {
+  var y = $(window).scrollTop();
+  app.colorBar(y);
+};
+
 // ==================================
 
 $(function () {
@@ -160,4 +174,6 @@ $(function () {
       app.artGrid.layout();
     }, 500);
   });
+
+  $(window).scroll(app.scrollHandler);
 });
