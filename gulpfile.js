@@ -7,6 +7,7 @@ var include = require('gulp-include');
 var sass = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
 var cleancss = require('gulp-clean-css');
+var eslint = require('gulp-eslint');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
 var bump = require('gulp-bump');
@@ -20,7 +21,7 @@ var bump = require('gulp-bump');
 
 // Source paths
 var js = {
-      src: ['theme/src/js/*.coffee', 'theme/src/js/*.js'],
+      src: ['theme/src/js/*.coffee', 'theme/src/js/*.js', '!node_modules/**'],
       dest: 'theme/assets',
       watch: ['theme/src/js/**/*.coffee','theme/src/js/**/*.js']
     },
@@ -30,7 +31,32 @@ var js = {
         watch: 'theme/src/css/**/*.scss'
     };
 
-// Compile and minify Sass 
+// Scripts
+gulp.task('scripts', function () {
+  return gulp.src(js.src)
+    .pipe(plumber())
+    .pipe(include({
+      includePaths: [
+        __dirname + '/node_modules',
+        __dirname + '/bower_components',
+        __dirname + '/src/js'
+      ]
+    }))
+    .pipe(gulpif("*.coffee", coffee()))
+    .pipe(eslint({
+      configFile: "node_modules/eslint-config-google/index.js",
+      rules: {},
+      globals:['jQuery','$'],
+    }))
+    .pipe(eslint.formatEach())
+    .pipe(gulp.dest(js.dest))
+    .pipe(uglify())
+    .pipe(rename({ suffix: '.min' }))
+    .pipe(gulp.dest(js.dest))
+    //.pipe(reload({stream: true}));
+});
+
+// CSS
 gulp.task('styles', function () {
   gulp.src(css.src)
     .pipe(plumber())
@@ -42,25 +68,6 @@ gulp.task('styles', function () {
     .pipe(rename({ suffix: '.min' }))
     .pipe(cleancss())
     .pipe(gulp.dest(css.dest))    
-});
-
-// Scripts
-gulp.task('scripts', function () {
-  gulp.src(js.src)
-    .pipe(plumber())
-    .pipe(include({
-      includePaths: [
-        __dirname + '/node_modules',
-        __dirname + '/bower_components',
-        __dirname + '/src/js'
-      ]
-    }))
-    .pipe(gulpif("*.coffee", coffee()))
-    .pipe(gulp.dest(js.dest))
-    .pipe(uglify())
-    .pipe(rename({ suffix: '.min' }))
-    .pipe(gulp.dest(js.dest))
-    //.pipe(reload({stream: true}));
 });
 
 // php server
