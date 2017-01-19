@@ -61,7 +61,7 @@ app.artGrid = {
   },
 
   showItems: function (bool) {
-    $(app.artGrid._item_selector).toggleClass('visible', bool);
+    $(app.artGrid._grid).children(app.artGrid._item_selector).toggleClass('visible', bool);
   },
 
   layout: function () {
