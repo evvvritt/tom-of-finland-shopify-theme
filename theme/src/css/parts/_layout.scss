@@ -416,12 +416,22 @@
   #Product and Collection Grids
 ==============================================================================*/
 
+.main-content.wrapper{
+  .template-index &, .template-collection &{
+    max-width:none;
+  }
+}
 .art-grid{
   .supports-js &{
     position:relative;
     min-height:60vh;
     .grid__item{
       opacity:0;
+      transition:opacity 0;
+      &.visible{
+        opacity:1;
+        transition:opacity 500ms;
+      }
     }
   }
 }
@@ -431,6 +441,10 @@
     position:absolute;
     padding:$gutter;
   }
+}
+
+.grid__item{
+  margin-bottom: $gutter;
 }
 
 .grid__image {

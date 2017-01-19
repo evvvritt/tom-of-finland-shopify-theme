@@ -11,7 +11,7 @@
   Use class grid-uniform to have evenly sized columns clear
   each other properly at each breakpoint.
 {% endcomment %}
-<div class="grid-uniform wrapper art-grid">
+<div class="grid-uniform art-grid">
 
   {% comment %}
     Loop through products in your Frontpage collection.
@@ -19,13 +19,6 @@
   {% endcomment %}
   {% for product in collections.frontpage.products limit:20 %}
 
-    {% comment %}
-      Change the grid item width by using classes from the grid in
-      the grid_item_width variable.
-
-      Example:
-        - {% assign grid_item_width = 'large--one-third medium--one-half' %}
-    {% endcomment %}
     {% assign grid_item_width = 'large--one-quarter medium--one-half' %}
     {% include 'product-grid-item' %}
 

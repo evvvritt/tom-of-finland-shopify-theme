@@ -3,7 +3,7 @@ var app = {};
 app.utils = {
 
   randomIntegerBt: function (min, max) {
-      return Math.floor(Math.random()*(max-min+1)+min);
+    return Math.floor(Math.random()*(max-min+1)+min);
   },
 
   shuffleArray: function (d) {
@@ -29,7 +29,6 @@ app.artGrid = {
     var minY = 0;
     // only loop through the first row which is the previous row
     for (var i = 0; i < rows[0].length; i++) {
-
       rowItem = rows[0][i];
       minY = minY < rowItem.offset_y ? rowItem.offset_y : minY;
 
@@ -61,20 +60,17 @@ app.artGrid = {
       });
   },
 
-  showItems: function (binary) {
-    binary = typeof binary === 'undefined' ? 1 : 0;
-    $(app.artGrid._item_selector).animate({opacity: binary}, 600);
+  showItems: function (bool) {
+    $(app.artGrid._item_selector).toggleClass('visible', bool);
   },
 
-  init: function () {
-
+  layout: function () {
     // setup
     var grid = $(app.artGrid._grid);
     var items = grid.children(app.artGrid._item_selector);
     var randNumb = app.utils.randomIntegerBt;
 
     if ( $(window).width() > 768 ) {
-
         var rows = [[]];
         var minX = 0;
         var maxX = grid.width();
@@ -92,10 +88,8 @@ app.artGrid = {
 
         // images loaded ?
         grid.imagesLoaded( function () {
-
           // position each item
           items.each( function (index) { //console.log(index); //debugger;
-
             var item = $(this);
             var itemW = item.outerWidth(); //console.log(item.find('a').attr('href'));
             var itemH = item.outerHeight();
@@ -137,7 +131,6 @@ app.artGrid = {
             // update vars
             itemX = itemX + itemW;
             gridHeight = ( itemY + itemH ) > gridHeight ? itemY + itemH : gridHeight;
-
           });
 
           // update grid height
@@ -145,30 +138,26 @@ app.artGrid = {
 
           // fade in
           app.artGrid.showItems();
-
         });
-
     } else { // < 768
-
-      grid.removeClass('art-grid--enabled').addClass('wrapper grid-uniform');
+      grid.removeClass('art-grid--enabled').addClass('grid-uniform');
+      items.removeAttr('style');
       app.artGrid.showItems();
-
     }
-
-  }, // init
-
+  },
 };
 
 // ==================================
 
 $(function () {
-  app.artGrid.init();
-  //var resizeTO;
-  //$(window).resize(function () {
-    //app.artGrid.showItems(0);
-    //clearTimeout(resizeTO);
-    //resizeTO = setTimeout(function () {
-      //app.artGrid.init();
-    //},500);
-  //});
+  app.artGrid.layout();
+
+  var resizeTO;
+  $(window).resize(function () {
+    app.artGrid.showItems(false);
+    clearTimeout(resizeTO);
+    resizeTO = setTimeout(function () {
+      app.artGrid.layout();
+    }, 500);
+  });
 });
