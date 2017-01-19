@@ -420,16 +420,16 @@
   .supports-js &{
     position:relative;
     min-height:60vh;
+    .grid__item{
+      opacity:0;
+    }
   }
 }
 
 .art-grid--enabled{
-    @include clearfix();
-    .grid__item{
-      position:absolute;
-      opacity:0;
-      padding:$gutter;
-    }
+  .grid__item{
+    position:absolute;
+    padding:$gutter;
   }
 }
 

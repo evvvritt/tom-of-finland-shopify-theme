@@ -2,47 +2,47 @@ var app = {};
 
 app.utils = {
 
-  randomIntegerBt: function(min,max) {
+  randomIntegerBt: function (min, max) {
       return Math.floor(Math.random()*(max-min+1)+min);
   },
 
-  shuffleArray: function(d) {
+  shuffleArray: function (d) {
     for (var c = d.length - 1; c > 0; c--) {
       var b = Math.floor(Math.random() * (c + 1));
       var a = d[c];
       d[c] = d[b];
       d[b] = a;
     }
-    return d
+    return d;
   },
 
-}
+};
 
 app.artGrid = {
 
   _grid: '.art-grid',
   _item_selector: '.grid__item',
-  _widths: [ '20%', '25%', '33%', '33%', '33%', '41.66%' ],
+  _widths: ['20%', '25%', '33%', '33%', '33%', '41.66%'],
 
-  getItemTopPosition: function(rows, item_x, item_w) { 
+  getItemTopPosition: function (rows, itemX, itemW, maxX) {
     var y = false;
     var minY = 0;
     // only loop through the first row which is the previous row
     for (var i = 0; i < rows[0].length; i++) {
-        
-      row_item = rows[0][i];
-      minY = minY < row_item.offset_y ? row_item.offset_y : minY;
 
-      // use max_x if last item in row
-      barrier = i === rows[0].length - 1 ? max_x : row_item.offset_x;
-      
+      rowItem = rows[0][i];
+      minY = minY < rowItem.offset_y ? rowItem.offset_y : minY;
+
+      // use maxX if last item in row
+      barrier = i === rows[0].length - 1 ? maxX : rowItem.offset_x;
+
       // skip if starts past the edge
-      if ( item_x > barrier ) { console.log('skip');
-        continue; 
+      if ( itemX > barrier ) {
+        continue;
       }
 
       // if fits, get y value
-      if ( item_w < ( barrier - item_x ) ) {
+      if ( itemW < ( barrier - itemX ) ) {
         y = minY;
         break;
       }
@@ -51,19 +51,19 @@ app.artGrid = {
   },
 
   resizeItem: function ($item) {
-    var widths = app.artGrid.widths;
+    var widths = app.artGrid._widths;
     $item
       .removeClass('large--one-quarter')
       .css({
-        width: function(){
-          return widths[rand_numb(0,widths.length-1)];
-        }
+        width: function () {
+          return widths[app.utils.randomIntegerBt(0, widths.length-1)];
+        },
       });
   },
 
   showItems: function (binary) {
-    binary = typeof binary === 'undefined' ? 1 : 0 ;
-    $(app.artGrid._item_selector).animate({opacity:binary},600);
+    binary = typeof binary === 'undefined' ? 1 : 0;
+    $(app.artGrid._item_selector).animate({opacity: binary}, 600);
   },
 
   init: function () {
@@ -71,75 +71,77 @@ app.artGrid = {
     // setup
     var grid = $(app.artGrid._grid);
     var items = grid.children(app.artGrid._item_selector);
-    var rand_numb = app.utils.randomIntegerBt;
+    var randNumb = app.utils.randomIntegerBt;
 
     if ( $(window).width() > 768 ) {
 
-        var min_x = 0;
-        var max_x = grid.width();
-        var item_x = rand_numb(min_x,(max_x)/4);
-        var item_y = 0;
         var rows = [[]];
-        var grid_h = 0;
-
-        // shuffle items      
-        items = app.utils.shuffleArray(items);
+        var minX = 0;
+        var maxX = grid.width();
+        var itemX = randNumb(minX, maxX/4);
+        var itemY = 0;
+        var gridHeight = 0;
 
         // re-size items
-        items.each( app.artGrid.resizeItem( $(this) ) );
+        items.each( function () {
+          app.artGrid.resizeItem($(this) );
+        });
+
+        // shuffle items
+        items = app.utils.shuffleArray(items);
 
         // images loaded ?
-        grid.imagesLoaded(function(){ 
-                  
-          // position each item 
-          items.each(function(index){ //console.log(index); //debugger;
-            
+        grid.imagesLoaded( function () {
+
+          // position each item
+          items.each( function (index) { //console.log(index); //debugger;
+
             var item = $(this);
-            var item_w = item.outerWidth(); //console.log(item.find('a').attr('href'));
-            var item_h = item.outerHeight();
-            var start_new_row = function() {
-              item_x = rand_numb(0,max_x/8);
+            var itemW = item.outerWidth(); //console.log(item.find('a').attr('href'));
+            var itemH = item.outerHeight();
+            var startNewRow = function () {
+              itemX = randNumb(0, maxX/8);
               rows.push([]); // add new row
-              if (rows.length > 2 ){
-                rows.shift(); 
+              if (rows.length > 2 ) {
+                rows.shift();
               }
-            }
+            };
 
             // new row ?
-            if (item_x + item_w > max_x) {
-              start_new_row();
-            }          
+            if (itemX + itemW > maxX) {
+              startNewRow();
+            }
 
             // if not first row, get y
-            if (rows.length > 1){
-              var useable_y = app.artGrid.getItemTopPosition(rows, item_x, item_w);
-              if (useable_y === false){
-                start_new_row();
-                item_y = rows[0][0].offset_y; // get bottom edge of first item in next row
+            if (rows.length > 1) {
+              var useableY = app.artGrid.getItemTopPosition(rows, itemX, itemW, maxX);
+              if (useableY === false) {
+                startNewRow();
+                itemY = rows[0][0].offset_y; // get bottom edge of first item in next row
               } else {
-                item_y = useable_y;
+                itemY = useableY;
               }
             }
-            item_y = rand_numb(0,3) > 0 ? item_y + rand_numb(0,max_x/12) : item_y ;
-            
+            itemY = randNumb(0, 3) > 0 ? itemY + randNumb(0, maxX/12) : itemY;
+
             // position it!
-            item.css({ left:item_x, top:item_y});
+            item.css({left: itemX, top: itemY});
 
             // store item in last row
-            var item_pos = { 
-              offset_x: item_x + item_w, 
-              offset_y: item_y + item_h 
+            var itemPos = {
+              offset_x: itemX + itemW,
+              offset_y: itemY + itemH,
             };
-            rows[rows.length-1].push(item_pos);
-            
+            rows[rows.length-1].push(itemPos);
+
             // update vars
-            item_x = item_x + item_w;
-            grid_h = ( item_y + item_h ) > grid_h ? item_y + item_h : grid_h;
+            itemX = itemX + itemW;
+            gridHeight = ( itemY + itemH ) > gridHeight ? itemY + itemH : gridHeight;
 
           });
 
           // update grid height
-          grid.css('height',grid_h).addClass('art-grid--enabled').removeClass('wrapper grid-uniform');
+          grid.css('height', gridHeight).addClass('art-grid--enabled').removeClass('wrapper grid-uniform');
 
           // fade in
           app.artGrid.showItems();
@@ -153,19 +155,19 @@ app.artGrid = {
 
     }
 
-  } // init
+  }, // init
 
 };
 
 // ==================================
 
-$(function(){
+$(function () {
   app.artGrid.init();
   //var resizeTO;
-  //$(window).resize(function(){
+  //$(window).resize(function () {
     //app.artGrid.showItems(0);
     //clearTimeout(resizeTO);
-    //resizeTO = setTimeout(function(){
+    //resizeTO = setTimeout(function () {
       //app.artGrid.init();
     //},500);
   //});

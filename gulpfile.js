@@ -44,7 +44,7 @@ gulp.task('scripts', function () {
     }))
     .pipe(gulpif("*.coffee", coffee()))
     .pipe(eslint({
-      configFile: "node_modules/eslint-config-google/index.js",
+      //configFile: "node_modules/eslint-config-google/index.js",
       rules: {},
       globals:['jQuery','$'],
     }))

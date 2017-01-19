@@ -2482,18 +2482,15 @@ ol.alpha {
 /*============================================================================
   #Product and Collection Grids
 ==============================================================================*/
-@media (min-width: 769px) {
-  .supports-js .art-grid--enabled {
-    position: relative;
-    min-height: 60vh;
-    *zoom: 1; }
-    .supports-js .art-grid--enabled:after {
-      content: '';
-      display: table;
-      clear: both; }
-    .supports-js .art-grid--enabled .grid__item {
-      opacity: 0;
-      padding: 3em; } }
+.supports-js .art-grid {
+  position: relative;
+  min-height: 60vh; }
+  .supports-js .art-grid .grid__item {
+    opacity: 0; }
+
+.art-grid--enabled .grid__item {
+  position: absolute;
+  padding: 3em; }
 
 .grid__image {
   display: block;
