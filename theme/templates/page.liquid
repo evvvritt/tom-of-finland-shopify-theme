@@ -1,10 +1,11 @@
 <!-- /templates/page.liquid -->
-<div class="wrapper">
-	<div class="grid">
+<article>
 
-	  <div class="grid__item large--two-thirds push--large--one-sixth">
-
-	    <h1>{{ page.title }}</h1>
+		<header>
+	  	<h1>{{ page.title }}</h1>
+	  </header>
+	  
+	  <section class="large--seven-twelfths medium--nine-twelfths">
 
 	    {% comment %}
 	      Regular page content goes here.
@@ -13,7 +14,7 @@
 	      {{ page.content }}
 	    </div>
 
-	  </div>
+	  </section>
 
-	</div>
+	</article>
 </div>

@@ -4,7 +4,7 @@
 .site-header {
   background: $colorHeaderBg;
   color: $colorHeaderText;
-  padding:0;
+  padding:.5em 0 .375em;
 
   .grid--table {
     display: table;
@@ -121,7 +121,7 @@
 .site-nav__link {
   display: block;
   text-decoration: none;
-  padding: $gutter / 2;
+  padding: 1em ($gutter/2) 1.75em;
   white-space: nowrap;
   color: $colorNavText;
   font-weight:900;
@@ -325,7 +325,7 @@
 ==============================================================================*/
 .site-footer {
   background-color: $colorFooterBg;
-  padding: $gutter/3 0;
+  padding: 0.75em 0;
   color: $colorFooterText;
 
   .social-icons{
@@ -390,6 +390,7 @@
   }
   .site-nav__link{
     display: inline-block;
+    padding:$gutter/2;
   }
 }
 
@@ -406,9 +407,10 @@
   .site-footer-nav > ul > li{
     padding:0;
     margin-bottom: 1em;
-    a {
-      padding:0;
-    }
+  }
+
+  .site-footer .site-nav__link{
+    padding:0;
   }
 }
 
@@ -443,10 +445,6 @@
   }
 }
 
-.grid__item{
-  margin-bottom: $gutter;
-}
-
 .grid__image {
   display: block;
   margin: 0 auto ($gutter / 2);
@@ -463,6 +461,7 @@
 
 .grid__item__title{
   text-align: center;
+  margin-bottom: 3em;
   // hover
   .supports-no-touch &{
     visibility: hidden;
@@ -497,6 +496,23 @@
   }
 }
 
+/*============================================================================
+  #Page
+==============================================================================*/
+
+.template-page .main-content{
+  font-size:1.4em;
+  font-weight: bold;
+  margin-top:$gutter*2;
+  article{
+    header{
+      margin-bottom:6.5em;
+    }
+    section{
+      margin:0 auto;
+    }
+  }
+}
 
 /*============================================================================
   #Product Page

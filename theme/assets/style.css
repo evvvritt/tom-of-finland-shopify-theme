@@ -1280,7 +1280,8 @@ body {
 .main-content {
   display: block;
   margin-top: 3em;
-  padding-bottom: 6em; }
+  padding-bottom: 6em;
+  min-height: 78vh; }
 
 /*============================================================================
   #Helper Classes
@@ -2193,7 +2194,7 @@ ol.alpha {
 .site-header {
   background: black;
   color: white;
-  padding: 0; }
+  padding: .5em 0 .375em; }
   .site-header .grid--table {
     display: table;
     table-layout: fixed;
@@ -2274,7 +2275,7 @@ ol.alpha {
 .site-nav__link {
   display: block;
   text-decoration: none;
-  padding: 1.5em;
+  padding: 1em 1.5em 1.75em;
   white-space: nowrap;
   color: white;
   font-weight: 900;
@@ -2413,7 +2414,7 @@ ol.alpha {
 ==============================================================================*/
 .site-footer {
   background-color: black;
-  padding: 1em 0;
+  padding: 0.75em 0;
   color: white; }
   .site-footer .social-icons {
     display: inline-block;
@@ -2464,7 +2465,8 @@ ol.alpha {
     display: inline-block; }
 
 .site-footer-nav .site-nav__link {
-  display: inline-block; }
+  display: inline-block;
+  padding: 1.5em; }
 
 @media (max-width: 768px) {
   .site-footer {
@@ -2476,8 +2478,8 @@ ol.alpha {
   .site-footer-nav > ul > li {
     padding: 0;
     margin-bottom: 1em; }
-    .site-footer-nav > ul > li a {
-      padding: 0; } }
+  .site-footer .site-nav__link {
+    padding: 0; } }
 
 /*============================================================================
   #Product and Collection Grids
@@ -2501,9 +2503,6 @@ ol.alpha {
   position: absolute;
   padding: 3em; }
 
-.grid__item {
-  margin-bottom: 3em; }
-
 .grid__image {
   display: block;
   margin: 0 auto 1.5em; }
@@ -2514,7 +2513,8 @@ ol.alpha {
     color: red; }
 
 .grid__item__title {
-  text-align: center; }
+  text-align: center;
+  margin-bottom: 3em; }
   .supports-no-touch .grid__item__title {
     visibility: hidden; }
   .supports-no-touch .grid__item:hover .grid__item__title {
@@ -2539,6 +2539,18 @@ ol.alpha {
     .breadcrumb a:first-child,
     .breadcrumb span:first-child {
       padding-left: 0; }
+
+/*============================================================================
+  #Page
+==============================================================================*/
+.template-page .main-content {
+  font-size: 1.4em;
+  font-weight: bold;
+  margin-top: 6em; }
+  .template-page .main-content article header {
+    margin-bottom: 6.5em; }
+  .template-page .main-content article section {
+    margin: 0 auto; }
 
 /*============================================================================
   #Product Page
