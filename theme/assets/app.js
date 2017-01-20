@@ -136,7 +136,7 @@ app.artGrid = {
           });
 
           // update grid height
-          grid.css('height', gridHeight).addClass('art-grid--enabled').removeClass('wrapper grid-uniform');
+          grid.css('height', gridHeight + 100).addClass('art-grid--enabled').removeClass('wrapper grid-uniform');
 
           // fade in
           this.showItems();
@@ -154,7 +154,7 @@ app.artGrid = {
 };
 
 app.colorBar = function (y) {
-  if ( y + $(window).height() < $('#siteFooter').offset().top ) {
+  if ( y + $(window).height() < $('#colorBarStatic').offset().top ) {
     app._body.addClass('colorbar-fixed');
   } else {
     app._body.removeClass('colorbar-fixed');

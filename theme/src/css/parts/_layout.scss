@@ -324,9 +324,21 @@
   #Site Footer
 ==============================================================================*/
 .site-footer {
+  position:absolute;
+  left:0; bottom:0;
+  width:100%;
   background-color: $colorFooterBg;
-  padding: 0.75em 0;
   color: $colorFooterText;
+
+  @include at-query ($max, $medium){
+    position:relative;
+    left:auto; bottom:auto;
+  }
+
+  .wrapper{
+    padding-top: 0.75em;
+    padding-bottom: 0.75em;
+  }
 
   .social-icons{
     display: inline-block;
@@ -395,8 +407,9 @@
 }
 
 @media (max-width:$medium) {
-  .site-footer{
-    padding:$gutter/2 0;
+  .site-footer .wrapper{
+    padding-top:$gutter/2;
+    padding-bottom:$gutter/2;
   }
   .site-footer .social-icons, 
   .site-footer #contact_form, 

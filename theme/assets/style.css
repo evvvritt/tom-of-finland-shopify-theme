@@ -1264,6 +1264,9 @@ body {
 [tabindex='-1']:focus {
   outline: none; }
 
+#pageContainer {
+  min-height: 100vh; }
+
 .wrapper {
   *zoom: 1;
   max-width: none;
@@ -2416,9 +2419,20 @@ ol.alpha {
   #Site Footer
 ==============================================================================*/
 .site-footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
   background-color: black;
-  padding: 0.75em 0;
   color: white; }
+  @media screen and (max-width: 768px) {
+    .site-footer {
+      position: relative;
+      left: auto;
+      bottom: auto; } }
+  .site-footer .wrapper {
+    padding-top: 0.75em;
+    padding-bottom: 0.75em; }
   .site-footer .social-icons {
     display: inline-block;
     margin: 0; }
@@ -2472,8 +2486,9 @@ ol.alpha {
   padding: 1.5rem; }
 
 @media (max-width: 768px) {
-  .site-footer {
-    padding: 1.5rem 0; }
+  .site-footer .wrapper {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem; }
   .site-footer .social-icons,
   .site-footer #contact_form,
   .site-footer-nav > ul > li {
