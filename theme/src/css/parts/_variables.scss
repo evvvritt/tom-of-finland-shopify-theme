@@ -6,6 +6,7 @@ $viewportIncrement: 1px;
 $small: 480px;
 $medium: 768px;
 $large: 769px;
+$xlarge: 1024px;
 
 $postSmall: $small + $viewportIncrement;
 $preMedium: $medium - $viewportIncrement;
@@ -87,8 +88,9 @@ $colorDrawerText: #333;
 $drawerTransition: all 0.4s cubic-bezier(0.46, 0.01, 0.32, 1);
 
 // Sizing variables
-$siteWidth: 1115px;
-$gutter: 3em;
+$siteWidth: none; //1115px;
+$pageWidth: 1115px;
+$gutter: 3rem;
 $gridGutter: 30px; // can be a %, but nested grids will have smaller margins because of it
 $radius: 0; //3px;
 

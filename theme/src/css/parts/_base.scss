@@ -3,7 +3,7 @@
 ==============================================================================*/
 html {
   background-color: $colorFooterBg;
-  font-size:$rem; 
+  font-size:$rem;
 }
 
 body {
@@ -22,6 +22,9 @@ body {
 
   @include at-query ($min, $small) {
     padding: 0 $gutter;
+  }
+  @include at-query ($min, $xlarge) {
+    padding:0 $gutter*2.66;
   }
 }
 

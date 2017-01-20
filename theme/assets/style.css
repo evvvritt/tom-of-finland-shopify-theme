@@ -1266,21 +1266,24 @@ body {
 
 .wrapper {
   *zoom: 1;
-  max-width: 1115px;
+  max-width: none;
   margin: 0 auto;
-  padding: 0 1.5em; }
+  padding: 0 1.5rem; }
   .wrapper:after {
     content: '';
     display: table;
     clear: both; }
   @media screen and (min-width: 480px) {
     .wrapper {
-      padding: 0 3em; } }
+      padding: 0 3rem; } }
+  @media screen and (min-width: 1024px) {
+    .wrapper {
+      padding: 0 7.98rem; } }
 
 .main-content {
   display: block;
-  margin-top: 3em;
-  padding-bottom: 6em;
+  margin-top: 3rem;
+  padding-bottom: 6rem;
   min-height: 78vh; }
 
 /*============================================================================
@@ -1342,7 +1345,7 @@ th {
 
 th, td {
   text-align: left;
-  padding: 1.5em;
+  padding: 1.5rem;
   border: 1px solid #333; }
 
 /*============================================================================
@@ -1403,11 +1406,11 @@ th, td {
 
 .media-img {
   float: left;
-  margin-right: 3em; }
+  margin-right: 3rem; }
 
 .media-img-right {
   float: right;
-  margin-left: 3em; }
+  margin-left: 3rem; }
 
 .media-img img,
 .media-img-right img {
@@ -1447,7 +1450,7 @@ form {
   margin-bottom: 0; }
 
 .form-vertical {
-  margin-bottom: 1.5em; }
+  margin-bottom: 1.5rem; }
 
 /*================ Prevent zoom on touch devices in active inputs ================*/
 @media screen and (max-width: 768px) {
@@ -1489,7 +1492,7 @@ input[type="image"] {
 
 fieldset {
   border: 1px solid #333;
-  padding: 1.5em; }
+  padding: 1.5rem; }
 
 legend {
   border: 0;
@@ -1727,7 +1730,7 @@ h6, .h6 {
   font-size: 1em; }
 
 p {
-  margin: 0 0 1.5em 0; }
+  margin: 0 0 1.5rem 0; }
   p img {
     margin: 0; }
 
@@ -1756,13 +1759,13 @@ blockquote {
   font-size: 1.125em;
   line-height: 1.45;
   font-style: italic;
-  margin: 0 0 3em;
-  padding: 1.5em 3em;
+  margin: 0 0 3rem;
+  padding: 1.5rem 3rem;
   border-left: 1px solid #333; }
   blockquote p {
     margin-bottom: 0; }
     blockquote p + cite {
-      margin-top: 1.5em; }
+      margin-top: 1.5rem; }
   blockquote cite {
     display: block;
     font-size: 0.75em; }
@@ -1780,31 +1783,31 @@ code, pre {
 
 pre {
   overflow: auto;
-  padding: 1.5em;
-  margin: 0 0 3em; }
+  padding: 1.5rem;
+  margin: 0 0 3rem; }
 
 /*================ Horizontal Rules ================*/
 hr {
   clear: both;
   border-top: solid #333;
   border-width: 1px 0 0;
-  margin: 3em 0;
+  margin: 3rem 0;
   height: 0; }
   hr.hr--small {
-    margin: 1.5em 0; }
+    margin: 1.5rem 0; }
   hr.hr--clear {
     border-top-color: transparent; }
 
 /*================ Section Headers ================*/
 .section-header {
-  margin-bottom: 2em; }
+  margin-bottom: 2rem; }
 
 @media screen and (min-width: 769px) {
   .section-header {
     display: table;
     width: 100%; }
   .section-header__title {
-    margin-bottom: 1.2em; }
+    margin-bottom: 1.2rem; }
   .section-header__left {
     display: table-cell;
     vertical-align: middle;
@@ -1819,7 +1822,7 @@ hr {
     width: 335px; } }
   @media screen and (min-width: 769px) and (max-width: 768px) {
     .section-header__right {
-      margin-bottom: 3em; } }
+      margin-bottom: 3rem; } }
 
 .section-header__right .form-horizontal,
 .section-header__right .collection-view {
@@ -1829,7 +1832,7 @@ hr {
 @media screen and (min-width: 481px) {
   .section-header__right label + select,
   .section-header__right .collection-view {
-    margin-left: 1.5em; } }
+    margin-left: 1.5rem; } }
 
 .collection-view {
   display: inline-block;
@@ -1862,7 +1865,7 @@ hr {
   #Rich Text Editor
 ==============================================================================*/
 .rte {
-  margin-bottom: 1.5em; }
+  margin-bottom: 1.5rem; }
   .rte a {
     text-decoration: underline; }
   .rte h1, .rte .h1, .rte h2, .rte .h2, .rte h3, .rte .h3, .rte h4, .rte .h4, .rte h5, .rte .h5, .rte h6, .rte .h6 {
@@ -1872,7 +1875,7 @@ hr {
     .rte h1 a, .rte .h1 a, .rte h2 a, .rte .h2 a, .rte h3 a, .rte .h3 a, .rte h4 a, .rte .h4 a, .rte h5 a, .rte .h5 a, .rte h6 a, .rte .h6 a {
       text-decoration: none; }
   .rte > div {
-    margin-bottom: 1.5em; }
+    margin-bottom: 1.5rem; }
   .rte li {
     margin-bottom: 0.4em; }
 
@@ -1979,7 +1982,7 @@ html input[disabled] {
   #Lists
 ==============================================================================*/
 ul, ol {
-  margin: 0 0 1.5em 20px;
+  margin: 0 0 1.5rem 20px;
   padding: 0; }
 
 ol {
@@ -2165,7 +2168,7 @@ ol.alpha {
   user-select: none;
   cursor: default; }
   .payment-icons li {
-    margin: 0 0.75em 0.75em;
+    margin: 0 0.75rem 0.75rem;
     color: white;
     cursor: default; }
   .payment-icons .icon {
@@ -2205,7 +2208,7 @@ ol.alpha {
       vertical-align: middle; }
   @media (max-width: 768px) {
     .site-header {
-      padding-top: 1.5em; } }
+      padding-top: 1.5rem; } }
 
 .site-header__logo {
   text-align: center;
@@ -2242,7 +2245,7 @@ ol.alpha {
 .site-header__search {
   display: inline-block;
   max-width: 400px;
-  margin-top: 1.5em;
+  margin-top: 1.5rem;
   width: 100%; }
 
 .search-bar {
@@ -2257,7 +2260,7 @@ ol.alpha {
 ==============================================================================*/
 .site-nav, .site-nav--mobile {
   cursor: default;
-  margin: 0 0 0 -1.5em; }
+  margin: 0 0 0 -1.5rem; }
   .site-nav li, .site-nav--mobile li {
     margin: 0;
     display: block; }
@@ -2267,7 +2270,7 @@ ol.alpha {
 
 /*================ Home to hamburger and cart that toggle drawers ================*/
 .text-right .site-nav--mobile {
-  margin: 0 -1.5em 0 0; }
+  margin: 0 -1.5rem 0 0; }
 
 .site-nav--mobile .icon-cart {
   font-size: 69%; }
@@ -2275,7 +2278,7 @@ ol.alpha {
 .site-nav__link {
   display: block;
   text-decoration: none;
-  padding: 1em 1.5em 1.75em;
+  padding: 1em 1.5rem 1.75em;
   white-space: nowrap;
   color: white;
   font-weight: 900;
@@ -2285,7 +2288,7 @@ ol.alpha {
     position: relative;
     top: -2px;
     font-size: 10px;
-    padding-left: 0.75em; }
+    padding-left: 0.75rem; }
   .site-nav--active > .site-nav__link {
     font-weight: bold; }
   .site-nav--mobile .site-nav__link {
@@ -2313,7 +2316,7 @@ ol.alpha {
   padding: 10px 0; }
   @media screen and (max-width: 768px) {
     .nav-search {
-      padding: 0 0 1.5em;
+      padding: 0 0 1.5rem;
       margin: 0 auto;
       text-align: center; } }
 
@@ -2322,12 +2325,12 @@ ol.alpha {
   - List of items inside the mobile drawer
 ==============================================================================*/
 .mobile-nav {
-  margin: -1.5em -1.5em 0 -1.5em; }
+  margin: -1.5rem -1.5rem 0 -1.5rem; }
   .mobile-nav li {
     margin-bottom: 0; }
 
 .mobile-nav__search {
-  padding: 1.5em; }
+  padding: 1.5rem; }
   .mobile-nav__search .search-bar {
     margin-bottom: 0; }
 
@@ -2340,8 +2343,8 @@ ol.alpha {
     content: '';
     position: absolute;
     bottom: 0;
-    left: 1.5em;
-    right: 1.5em;
+    left: 1.5rem;
+    right: 1.5rem;
     border-bottom: 1px solid #e9e9e9; }
   .mobile-nav > .mobile-nav__item:last-child:after {
     display: none; }
@@ -2352,7 +2355,7 @@ ol.alpha {
 .mobile-nav__item a,
 .mobile-nav__toggle button {
   color: #333;
-  padding: 1.5em;
+  padding: 1.5rem;
   text-decoration: none; }
   .mobile-nav__item a:hover, .mobile-nav__item a:active, .mobile-nav__item a:focus,
   .mobile-nav__toggle button:hover,
@@ -2406,7 +2409,7 @@ ol.alpha {
     top: 0;
     bottom: auto; }
   .mobile-nav__sublist .mobile-nav__link {
-    padding-left: 3em;
+    padding-left: 3rem;
     font-weight: normal; }
 
 /*============================================================================
@@ -2420,14 +2423,14 @@ ol.alpha {
     display: inline-block;
     margin: 0; }
     .site-footer .social-icons li {
-      margin-right: 0.5em; }
+      margin-right: 0.5rem; }
     .site-footer .social-icons a {
-      padding: 1em 0;
+      padding: 1rem 0;
       display: inline-block; }
   .site-footer #contact_form {
     max-width: 220px;
-    padding: 1.5em 0;
-    margin-right: 3em;
+    padding: 1.5rem 0;
+    margin-right: 3rem;
     display: inline-block;
     vertical-align: middle; }
     .site-footer #contact_form input {
@@ -2466,11 +2469,11 @@ ol.alpha {
 
 .site-footer-nav .site-nav__link {
   display: inline-block;
-  padding: 1.5em; }
+  padding: 1.5rem; }
 
 @media (max-width: 768px) {
   .site-footer {
-    padding: 1.5em 0; }
+    padding: 1.5rem 0; }
   .site-footer .social-icons,
   .site-footer #contact_form,
   .site-footer-nav > ul > li {
@@ -2523,11 +2526,11 @@ body.colorbar-fixed #colorBarFixed {
 
 .art-grid--enabled .grid__item {
   position: absolute;
-  padding: 3em; }
+  padding: 3rem; }
 
 .grid__image {
   display: block;
-  margin: 0 auto 1.5em; }
+  margin: 0 auto 1.5rem; }
   .grid__image img {
     display: block;
     margin: 0 auto; }
@@ -2552,7 +2555,7 @@ body.colorbar-fixed #colorBarFixed {
   #Breadcrumbs
 ==============================================================================*/
 .breadcrumb {
-  margin-bottom: 3em; }
+  margin-bottom: 3rem; }
   .breadcrumb a,
   .breadcrumb span {
     display: inline-block;
@@ -2568,9 +2571,10 @@ body.colorbar-fixed #colorBarFixed {
 .template-page .main-content {
   font-size: 1.4em;
   font-weight: bold;
-  margin-top: 6em; }
+  margin-top: 6rem; }
   .template-page .main-content article section {
-    margin: 6.5em auto; }
+    margin: 6.5em auto;
+    max-width: 45em; }
 
 /*============================================================================
   #Product Page
@@ -2633,7 +2637,7 @@ body.colorbar-fixed #colorBarFixed {
     display: block; }
 
 .product-single__photos {
-  margin-bottom: 3em; }
+  margin-bottom: 3rem; }
 
 .product-single__photos a, .product-single__photos img,
 .product-single__thumbnails a,
@@ -2643,7 +2647,7 @@ body.colorbar-fixed #colorBarFixed {
 
 .product-single__photos li,
 .product-single__thumbnails li {
-  margin-bottom: 3em; }
+  margin-bottom: 3rem; }
 
 /*============================================================================
   #Notes and Form Feedback
@@ -2652,7 +2656,7 @@ body.colorbar-fixed #colorBarFixed {
 .errors {
   border-radius: 0;
   padding: 6px 12px;
-  margin-bottom: 1.5em;
+  margin-bottom: 1.5rem;
   border: 1px solid transparent;
   font-size: 0.9em;
   text-align: left; }
@@ -2715,7 +2719,7 @@ body.colorbar-fixed #colorBarFixed {
   -webkit-overflow-scrolling: touch;
   top: 0;
   bottom: 0;
-  padding: 0 1.5em 1.5em;
+  padding: 0 1.5rem 1.5rem;
   max-width: 95%;
   z-index: 10;
   color: #333;
@@ -2771,7 +2775,7 @@ body.colorbar-fixed #colorBarFixed {
   display: table;
   height: 70px;
   width: 100%;
-  margin-bottom: 1.5em;
+  margin-bottom: 1.5rem;
   border-bottom: 1px solid #e9e9e9; }
 
 .drawer__title,
