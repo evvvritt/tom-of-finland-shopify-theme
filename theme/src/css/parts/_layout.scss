@@ -416,7 +416,9 @@
 
 .colorbar{
   display: none;
-  .template-index &, .template-collection &{
+  .template-index &, 
+  .template-collection &,
+  .template-product &{
     display: block;
   }
   width:100%;
@@ -427,9 +429,14 @@
   position:fixed;
   bottom:0;
   left:0;
-  display: none;
-  .colorbar-fixed &{
-    display: block !important;
+  visibility: hidden;
+}
+body.colorbar-fixed{
+  #colorBarStatic{
+    visibility: hidden;
+  }
+  #colorBarFixed{
+    visibility: visible;
   }
 }
 

@@ -6,12 +6,8 @@
 
 {% endcomment %}
 
-{% paginate collection.products by 4 %}
+{% paginate collection.products by 20 %}
 
-{% comment %}
-  Use .grid--rev so that the collection tags appear below the products on mobile
-{% endcomment %}
-<div class="grid--rev">
 
     {% comment %}
       Use class grid-uniform to have evenly sized columns clear
@@ -62,8 +58,5 @@
       </div>
     {% endif %}
 
-  </div>
-
-</div>
 
 {% endpaginate %}

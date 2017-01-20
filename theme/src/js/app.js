@@ -21,8 +21,8 @@ app.utils = {
 
 app.artGrid = {
 
-  _grid: '.art-grid',
-  _item_selector: '.grid__item',
+  _grid: $('.art-grid'),
+  _items: $('.art-grid').children('.grid__item'),
   _widths: ['20%', '25%', '33%', '33%', '33%', '41.66%'],
 
   getItemTopPosition: function (rows, itemX, itemW, maxX) {
@@ -62,13 +62,14 @@ app.artGrid = {
   },
 
   showItems: function (bool) {
-    $(app.artGrid._grid).children(app.artGrid._item_selector).toggleClass('visible', bool);
+    bool = typeof bool === 'undefined' ? true : false ;
+    this._items.toggleClass('visible', bool);
   },
 
   layout: function () {
     // setup
-    var grid = $(app.artGrid._grid);
-    var items = grid.children(app.artGrid._item_selector);
+    var grid = app.artGrid._grid;
+    var items = app.artGrid._items;
     var randNumb = app.utils.randomIntegerBt;
 
     if ( $(window).width() > 768 ) {
@@ -88,7 +89,7 @@ app.artGrid = {
         items = app.utils.shuffleArray(items);
 
         // images loaded ?
-        grid.imagesLoaded( function () {
+        grid.imagesLoaded( () => {
           // position each item
           items.each( function (index) { //console.log(index); //debugger;
             var item = $(this);
@@ -138,13 +139,17 @@ app.artGrid = {
           grid.css('height', gridHeight).addClass('art-grid--enabled').removeClass('wrapper grid-uniform');
 
           // fade in
-          app.artGrid.showItems();
+          this.showItems();
         });
-    } else { // < 768
-      grid.removeClass('art-grid--enabled').addClass('grid-uniform');
-      items.removeAttr('style');
-      app.artGrid.showItems();
+    } else {
+      this.remove();
     }
+  },
+
+  remove: function () {
+    this._grid.removeClass('art-grid--enabled').addClass('grid-uniform');
+    this._items.removeAttr('style');
+    this.showItems();
   },
 };
 
@@ -168,7 +173,9 @@ $(function () {
 
   var resizeTO;
   $(window).resize(function () {
-    app.artGrid.showItems(false);
+    if ( $(window).width() > 768 ) {
+      app.artGrid.showItems(false);
+    };
     clearTimeout(resizeTO);
     resizeTO = setTimeout(function () {
       app.artGrid.layout();

@@ -264,7 +264,7 @@
     </main>
 
     <!-- begin site-footer -->
-    <div id="colorBar" class="colorbar" style="background-color: {{ collection.metafields.colors.accent }}"></div>
+    <div id="colorBarStatic" class="colorbar" style="background-color: {{ collection.metafields.colors.accent }}"></div>
     <footer id="siteFooter" class="site-footer" role="contentinfo">
       <div class="wrapper">
         <div class="grid">
@@ -398,10 +398,8 @@
     </script>
   {% endif %}
   
-  {% if template == 'index' or template == 'collection' %}
   <script src="https://npmcdn.com/imagesloaded@4.1/imagesloaded.pkgd.min.js"></script>
   {{ 'app.js' | asset_url | script_tag }}
-  {% endif %}
 
 </body>
 </html>
