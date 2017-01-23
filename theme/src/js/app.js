@@ -62,7 +62,7 @@ app.artGrid = {
   },
 
   showItems: function (bool) {
-    bool = typeof bool === 'undefined' ? true : false ;
+    bool = typeof bool === 'undefined' ? true : false;
     this._items.toggleClass('visible', bool);
   },
 
@@ -90,7 +90,7 @@ app.artGrid = {
         items = app.utils.shuffleArray(items);
 
         // images loaded ?
-        grid.imagesLoaded( () => {
+        grid.imagesLoaded( function () {
           // position each item
           items.each( function (index) { //console.log(index); //debugger;
             var item = $(this);
@@ -140,7 +140,7 @@ app.artGrid = {
           grid.css('height', gridHeight + gridBottomMargin).addClass('art-grid--enabled').removeClass('wrapper grid-uniform');
 
           // fade in
-          this.showItems();
+          app.artGrid.showItems();
         });
     } else {
       this.remove();
@@ -155,6 +155,7 @@ app.artGrid = {
 };
 
 app.colorBar = function (y) {
+  y = typeof y === 'undefined' ? $(window).scrollTop() : y;
   if ( y + $(window).height() < $('#colorBarStatic').offset().top ) {
     app._body.addClass('colorbar-fixed');
   } else {
