@@ -573,25 +573,16 @@ body.colorbar-fixed{
   }
   .selector-wrapper{
     display: inline-block;
-    width:30%;
-    margin-right: 2%;
-    //padding-right:1rem;
-    //select{
-      //width:100%;
-      //padding-left:1em;
-      //padding-right:1em;
-    //}
+    width:33%;
+    padding-right: 1%;
   }
   .quantity-wrapper{
     display: inline-block;
-    width: 30%;
+    width: 33%;
     input{
       //display: inline-block;
       //width: 50%;
       //margin:0 .25rem 0;
-    }
-    button{
-      display: none !important;
     }
   }
   label{
@@ -606,9 +597,10 @@ body.colorbar-fixed{
   }
   .social-icons {
     display: inline-block;
-    width:30%;
+    width:33%;
     margin-bottom: 1em;
     text-align: right;
+    min-width:8.125em;
     li {
       margin:0 .25em;
       &:first-child{ margin-left: 0; }
@@ -616,6 +608,14 @@ body.colorbar-fixed{
         color:$colorTextBody;
       }
     }
+
+    // flexbox rules
+    .product-form-actions{
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+    // 
     @media (max-width:960px) and (min-width:$large){
       display: block;
       width:100%;
