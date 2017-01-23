@@ -82,6 +82,25 @@
   }
 }
 
+.header-announcement{
+  font-size:.9em;
+  padding-top:2.6666666667em;
+  margin-bottom: 3em;
+  text-align: right;
+  text-transform: uppercase;
+  span{ // date
+    color:#ef4f54;
+  }
+  a{
+    display:inline-block;
+    padding-right:1.5rem;
+  }
+
+  @include at-query ($max, $small) {
+    text-align: center;
+  }
+}
+
 /*============================================================================
   #Site Nav and Dropdowns
 ==============================================================================*/
@@ -436,7 +455,7 @@
   }
   width:100%;
   height:20px;
-  background-color:#f69679;
+  background-color:#fa84d7;
 }
 #colorBarFixed{
   position:fixed;
@@ -571,18 +590,24 @@ body.colorbar-fixed{
     margin-bottom: 3.5em;
     display: block;
   }
+  .product-form-actions{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-wrap:wrap;
+  }
   .selector-wrapper{
+    flex-grow:1;
     display: inline-block;
     width:33%;
     padding-right: 1%;
   }
   .quantity-wrapper{
+    flex-grow:1;
     display: inline-block;
     width: 33%;
-    input{
-      //display: inline-block;
-      //width: 50%;
-      //margin:0 .25rem 0;
+    .js-qty{
+      max-width:none;
     }
   }
   label{
@@ -598,7 +623,7 @@ body.colorbar-fixed{
   .social-icons {
     display: inline-block;
     width:33%;
-    margin-bottom: 1em;
+    margin-bottom: 1.5em;
     text-align: right;
     min-width:8.125em;
     li {
@@ -607,19 +632,6 @@ body.colorbar-fixed{
       a{
         color:$colorTextBody;
       }
-    }
-
-    // flexbox rules
-    .product-form-actions{
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-    }
-    // 
-    @media (max-width:960px) and (min-width:$large){
-      display: block;
-      width:100%;
-      text-align: left;
     }
   }
 }

@@ -21,6 +21,36 @@
       }
     ]
   },
+  {
+    "name": "Announcements",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Product"
+      },
+      {
+        "type": "checkbox",
+        "id": "announcement_enable",
+        "label": "Show"
+      },
+      {
+        "type": "product",
+        "id": "announcement_product",
+        "label": "Product"
+      },
+      {
+        "type": "text",
+        "id": "announcement_date",
+        "label": "Date"
+      },
+      {
+        "type": "text",
+        "id": "announcement_title",
+        "label": "Title",
+        "info": "Leave blank to use product title"
+      }
+    ]
+  },
   //{
     //"name": "Colors",
     //"settings": [

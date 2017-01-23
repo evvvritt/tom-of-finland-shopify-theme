@@ -255,7 +255,23 @@
         </div>
       </nav>
 
-    </header>    
+    </header>
+    
+    {% if settings.announcement_enable %}
+    {% assign productt = all_products[settings.announcement_product] %}
+    <aside id="headerAnnouncement" class="header-announcement">
+      <div class="wrapper">
+        <a href="{{ productt.url }}">
+          <span>{{ settings.announcement_date }}</span>&nbsp; 
+          {% if settings.announcement_title == '' %}
+            {{productt.title}}
+          {% else %}
+            {{settings.announcement_title}}
+          {% endif %}
+        </a>
+      </div>
+    </aside>
+    {% endif %}
 
     <main class="main-content wrapper clearfix" role="main">
 
