@@ -23,7 +23,7 @@ app.artGrid = {
 
   _grid: $('.art-grid'),
   _items: $('.art-grid').children('.grid__item'),
-  _widths: ['20%', '25%', '33%', '33%', '33%', '41.66%'],
+  _widths: ['20%', '33%', '33%', '33%', '33%', '41.66%', '41.66%'],
 
   getItemTopPosition: function (rows, itemX, itemW, maxX) {
     var y = false;
