@@ -31,7 +31,7 @@ $breakpoint-has-pull:  ('medium', 'medium-down', 'large');
 $rem: 10px;
 
 // Timber Colors
-$colorPrimary: #333; //{{ settings.color_primary }};
+$colorPrimary: #040707; //{{ settings.color_primary }};
 $colorSecondary: red; //{{ settings.color_secondary }};
 
 // Button colors
@@ -57,10 +57,10 @@ $colorTextBody: black; //{{ settings.color_body_text }};
 $colorBody: white; //{{ settings.color_body_bg }};
 
 // Border colors
-$colorBorder: #333; //{{ settings.color_borders }};
+$colorBorder: $colorPrimary; //{{ settings.color_borders }};
 
 // Site Header
-$colorHeaderBg: black; //{{ settings.color_header_bg }};
+$colorHeaderBg: $colorPrimary; //{{ settings.color_header_bg }};
 $colorHeaderText: white; //{{ settings.color_header_text }};
 $colorNavText: white;
 

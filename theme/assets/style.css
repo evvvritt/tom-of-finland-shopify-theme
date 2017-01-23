@@ -1286,8 +1286,11 @@ body {
 .main-content {
   display: block;
   margin-top: 3rem;
-  padding-bottom: 6rem;
+  padding-bottom: 15rem;
   min-height: 78vh; }
+  @media screen and (max-width: 768px) {
+    .main-content {
+      padding-bottom: 6rem; } }
 
 /*============================================================================
   #Helper Classes
@@ -1349,7 +1352,7 @@ th {
 th, td {
   text-align: left;
   padding: 1.5rem;
-  border: 1px solid #333; }
+  border: 1px solid #040707; }
 
 /*============================================================================
   Responsive tables, defined with .table--responsive on table element.
@@ -1395,7 +1398,7 @@ th, td {
       top: 0;
       left: 15px;
       right: 15px;
-      border-bottom: 1px solid #333; } }
+      border-bottom: 1px solid #040707; } }
 
 /*============================================================================
   #OOCSS Media Object
@@ -1494,7 +1497,7 @@ input[type="image"] {
   padding-right: 0; }
 
 fieldset {
-  border: 1px solid #333;
+  border: 1px solid #040707;
   padding: 1.5rem; }
 
 legend {
@@ -1508,14 +1511,14 @@ input[type="submit"] {
 input,
 textarea,
 select {
-  border: 1px solid #333;
+  border: 1px solid #040707;
   max-width: 100%;
   padding: 0.8rem 1rem;
   border-radius: 0; }
   input:focus,
   textarea:focus,
   select:focus {
-    border: 1px solid #1a1a1a; }
+    border: 1px solid black; }
   input[disabled], input.disabled,
   textarea[disabled],
   textarea.disabled,
@@ -1764,7 +1767,7 @@ blockquote {
   font-style: italic;
   margin: 0 0 3rem;
   padding: 1.5rem 3rem;
-  border-left: 1px solid #333; }
+  border-left: 1px solid #040707; }
   blockquote p {
     margin-bottom: 0; }
     blockquote p + cite {
@@ -1792,7 +1795,7 @@ pre {
 /*================ Horizontal Rules ================*/
 hr {
   clear: both;
-  border-top: solid #333;
+  border-top: solid #040707;
   border-width: 1px 0 0;
   margin: 3rem 0;
   height: 0; }
@@ -1839,7 +1842,7 @@ hr {
 
 .collection-view {
   display: inline-block;
-  border: 1px solid #333;
+  border: 1px solid #040707;
   border-radius: 0;
   padding: 0 5px;
   height: 37px;
@@ -1855,14 +1858,14 @@ hr {
   border: 0 none;
   float: left;
   padding: 10px 8px;
-  color: #333;
+  color: #040707;
   line-height: 1; }
   .change-view:hover, .change-view:focus {
-    color: #333; }
+    color: #040707; }
 
 .change-view--active {
   cursor: default;
-  color: #333; }
+  color: #040707; }
 
 /*============================================================================
   #Rich Text Editor
@@ -1890,13 +1893,13 @@ hr {
 ==============================================================================*/
 a,
 .text-link {
-  color: #333;
+  color: #040707;
   text-decoration: none;
   background: transparent; }
   a:hover, a:focus,
   .text-link:hover,
   .text-link:focus {
-    color: #595959; }
+    color: #203838; }
   a:active,
   .text-link:active {
     color: red; }
@@ -1931,11 +1934,11 @@ html input[disabled] {
   -moz-appearance: none;
   border-radius: 0;
   /*================ Set primary button colors - can override later ================*/
-  background-color: #333;
+  background-color: #040707;
   color: #fff; }
   .btn:hover, .btn--secondary:hover,
   .rte .btn:hover, .rte .btn--secondary:hover {
-    background-color: #333;
+    background-color: #040707;
     color: #fff; }
   .btn:active, .btn--secondary:active, .btn:focus, .btn--secondary:focus,
   .rte .btn:active, .rte .btn--secondary:active,
@@ -2198,7 +2201,7 @@ ol.alpha {
   #Site Header
 ==============================================================================*/
 .site-header {
-  background: black;
+  background: #040707;
   color: white;
   padding: .5em 0 .375em; }
   .site-header .grid--table {
@@ -2304,7 +2307,7 @@ ol.alpha {
   left: 0;
   margin: 0;
   z-index: 5;
-  background: black; }
+  background: #040707; }
   .supports-no-touch .site-nav--has-dropdown:hover .site-nav__dropdown,
   .site-nav--has-dropdown.nav-hover .site-nav__dropdown,
   .nav-focus + .site-nav__dropdown {
@@ -2689,7 +2692,7 @@ body.colorbar-fixed #colorBarFixed {
     margin-bottom: 0; }
 
 .note {
-  border-color: #333; }
+  border-color: #040707; }
 
 .errors ul {
   list-style: disc outside;

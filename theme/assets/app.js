@@ -79,6 +79,7 @@ app.artGrid = {
         var itemX = randNumb(minX, maxX/4);
         var itemY = 0;
         var gridHeight = 0;
+        var gridBottomMargin = 200;
 
         // re-size items
         items.each( function () {
@@ -136,7 +137,7 @@ app.artGrid = {
           });
 
           // update grid height
-          grid.css('height', gridHeight + 100).addClass('art-grid--enabled').removeClass('wrapper grid-uniform');
+          grid.css('height', gridHeight + gridBottomMargin).addClass('art-grid--enabled').removeClass('wrapper grid-uniform');
 
           // fade in
           this.showItems();
@@ -170,6 +171,7 @@ app.scrollHandler = function () {
 
 $(function () {
   app.artGrid.layout();
+  app.colorBar();
 
   var resizeTO;
   $(window).resize(function () {

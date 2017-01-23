@@ -539,14 +539,16 @@ body.colorbar-fixed{
   #Page
 ==============================================================================*/
 
-.template-page .main-content{
-  font-size:1.4em;
-  font-weight: bold;
-  margin-top:$gutter*2;
-  article{
-    section{
-      margin:6.5em auto;
-      max-width:45em;
+.template-page {
+  .main-content{
+    font-size:1.4em;
+    font-weight: bold;
+    margin-top:$gutter*2;
+    article{
+      section{
+        margin:6.5em auto;
+        max-width:45em;
+      }
     }
   }
 }
