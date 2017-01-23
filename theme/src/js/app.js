@@ -83,7 +83,7 @@ app.artGrid = {
 
         // re-size items
         items.each( function () {
-          app.artGrid.resizeItem($(this) );
+          app.artGrid.resizeItem( $(this) );
         });
 
         // shuffle items
@@ -186,7 +186,7 @@ app.scrollHandler = function () {
   app.colorBar(y);
 };
 
-// ==================================
+// INIT ==================================
 
 $(function () {
   app.artGrid.layout();
