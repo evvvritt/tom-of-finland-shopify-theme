@@ -79,7 +79,7 @@ app.artGrid = {
         var itemX = randNumb(minX, maxX/4);
         var itemY = 0;
         var gridHeight = 0;
-        var gridBottomMargin = 200;
+        var gridBottomMargin = 100;
 
         // re-size items
         items.each( function () {
