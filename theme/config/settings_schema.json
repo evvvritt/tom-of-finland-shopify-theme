@@ -207,5 +207,15 @@
         "info": "https://www.facebook.com/shopify"
       }
     ]
+  },
+  {
+    "name": "18+ Overlay",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "18plus_enable",
+        "label": "Show 18+ Overlay"
+      }
+    ]
   }
 ]

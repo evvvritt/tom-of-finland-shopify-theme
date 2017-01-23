@@ -1,0 +1,13 @@
+{% if settings.18plus_enable %}
+{% if template == 'index' or template == 'collection' or template == 'product' %}
+<div id="overlay18Plus" class="visually-hidden">
+	<div id="overlay18PlusQuery">
+		Are you over 18?<br><br>
+		<button id="confirmOver18">Yes</button><button id="denyOver18">No</button>
+	</div>
+	<div id="overlay18PlusDenied">
+		Come back when you're 18 ;)
+	</div>
+</div>
+{% endif %}
+{% endif %}

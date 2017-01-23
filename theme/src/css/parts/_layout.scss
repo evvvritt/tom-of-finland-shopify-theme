@@ -648,6 +648,60 @@ body.colorbar-fixed{
   }
 }
 
+.products-navigation{
+  text-transform: uppercase;
+}
+
+/*============================================================================
+  #Overlays
+==============================================================================*/
+
+#overlay18Plus{
+  position:fixed;
+  top:0; left:0;
+  width:100%; height:100vh;
+  z-index:10000;
+  background:rgba(85,85,85,0.63);
+  padding:$gutter;
+  display: flex;
+  align-items: center;
+  > div{
+    font-size:1.1em;
+    background-color:black;
+    color:white;
+    width:100%;
+    max-width:56em;
+    margin:0 auto;
+    padding:6em $gutter 7.2em;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: $tracking-l;
+    button{
+      cursor: pointer;
+      display: inline-block;
+      color:inherit;
+      font-weight: inherit;
+      text-transform: inherit;
+      font-size: inherit;
+      letter-spacing: inherit;
+      margin:0 2.25em;
+    }
+  }
+  #overlay18PlusDenied{
+    display: none;
+  }
+  &[data-state="locked"]{
+    background:black;
+    #overlay18PlusQuery{
+      display: none;
+    }
+    #overlay18PlusDenied{
+      display: block;
+    }
+  }
+}
+
 /*============================================================================
   #Notes and Form Feedback
 ==============================================================================*/
@@ -716,4 +770,6 @@ body.colorbar-fixed{
     }
   }
 }
+
+
 

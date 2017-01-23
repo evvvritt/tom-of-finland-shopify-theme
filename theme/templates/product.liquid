@@ -146,7 +146,7 @@
       {% endcomment %}
       {% if collection %}
         {% if collection.previous_product or collection.next_product %}
-          <p>
+          <nav class="products-navigation">
             {% if collection.previous_product %}
               <span class="left">
                 {{ 'products.general.previous_product_html' | t | link_to: collection.previous_product }}
@@ -157,7 +157,7 @@
                 {{ 'products.general.next_product_html' | t | link_to: collection.next_product }}
               </span>
             {% endif %}
-          </p>
+          </nav>
         {% endif %}
       {% endif %}
 

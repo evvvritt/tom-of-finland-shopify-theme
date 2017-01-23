@@ -163,6 +163,24 @@ app.colorBar = function (y) {
   }
 };
 
+app.over18check = function () {
+  var overlay = $('#overlay18Plus');
+  if ( overlay.length > 0 ) {
+    var over18 = sessionStorage.getItem('over18'); console.log('over 18?: ' + over18);
+    if (over18 === null || over18 !== 'true') {
+      overlay.removeClass('visually-hidden');
+    }
+    $(document).on('click', '#confirmOver18', function () {
+      sessionStorage.setItem('over18', true);
+      overlay.addClass('visually-hidden');
+    });
+    $(document).on('click', '#denyOver18', function () {
+      sessionStorage.setItem('over18', false);
+      overlay.attr('data-state', 'locked');
+    });
+  }
+};
+
 app.scrollHandler = function () {
   var y = $(window).scrollTop();
   app.colorBar(y);
@@ -173,6 +191,7 @@ app.scrollHandler = function () {
 $(function () {
   app.artGrid.layout();
   app.colorBar();
+  app.over18check();
 
   var resizeTO;
   $(window).resize(function () {
