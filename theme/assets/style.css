@@ -2559,7 +2559,8 @@ body.colorbar-fixed #colorBarFixed {
 
 .art-grid--enabled .grid__item {
   position: absolute;
-  padding: 3rem; }
+  padding: 3rem;
+  outline: 1px solid #f1f1f1; }
 
 .grid__image {
   display: block;
@@ -2571,8 +2572,10 @@ body.colorbar-fixed #colorBarFixed {
     color: red; }
 
 .grid__item__title {
-  text-align: center;
-  margin-bottom: 3em; }
+  text-align: center; }
+  @media screen and (max-width: 768px) {
+    .grid__item__title {
+      margin-bottom: 3rem; } }
   .supports-no-touch .grid__item__title {
     visibility: hidden; }
   .supports-no-touch .grid__item:hover .grid__item__title {
