@@ -50,7 +50,7 @@ app.artGrid = {
     var randNumb = app.utils.randomIntegerBt;
 
     if ( $(window).width() > 768 ) {
-        var rows = [[]];
+        var placedItems = [];
         var minX = 0;
         var maxX = grid.width();
         var itemX = randNumb(minX, maxX/12);
@@ -75,6 +75,36 @@ app.artGrid = {
           items.each( function (index) { //console.log(index); //debugger;
             var item = $(this);
             var itemW = item.outerWidth(); //console.log(item.find('a').attr('href'));
+            var itemH = item.outerHeight();
+
+            if (placedItems.length > 0) {
+              for (var i = 0; i < placedItems.length; i++) {
+                //var thisPt = placedItems[i];
+                //var nextPt = placedItems[i+1];
+              };  
+            }
+
+            // position it!
+            item.css({left: itemX, top: itemY});
+
+            var itemBottomPos = {
+              x1: itemX,
+              x2: itemX+itemW,
+              y: itemY+itemH,
+              width: item
+            }
+            borderPts.push(itemBottomPos);
+
+            // update border pts
+            for (var i = 0; i < borderPts.length; i++) {
+              borderPts[i]
+            };
+
+            //
+            //
+            //
+            //
+            
             var itemH = item.outerHeight();
             var startNewRow = function () {
               rows.push([]); // add new row
