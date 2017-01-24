@@ -43,11 +43,11 @@ gulp.task('scripts', function () {
       ]
     }))
     .pipe(gulpif("*.coffee", coffee()))
-    .pipe(eslint({
+    .pipe(gulpif("!plugins.js", eslint({
       //configFile: "node_modules/eslint-config-google/index.js",
       rules: {},
       globals:['jQuery','$'],
-    }))
+    })))
     .pipe(eslint.formatEach())
     .pipe(gulp.dest(js.dest))
     .pipe(uglify())

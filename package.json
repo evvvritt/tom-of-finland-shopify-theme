@@ -25,6 +25,7 @@
     "gulp-uglify": "^2.0.0"
   },
   "dependencies": {
+    "imagesloaded": "^4.1.1",
     "shufflejs": "^4.0.2"
   }
 }
