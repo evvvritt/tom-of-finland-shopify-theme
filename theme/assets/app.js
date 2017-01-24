@@ -25,16 +25,14 @@ app.artGrid = {
 
   _grid: $('.art-grid'),
   _items: $('.art-grid').children('.grid__item'),
-  _widths: ['25%', '33.33%', '33.33%', '33.33%', '41.66%'],
+  _widths: ['two-twelfths', 'three-twelfths', 'three-twelfths', 'four-twelfths', 'four-twelfths', 'four-twelfths', 'four-twelfths', 'five-twelfths'],
 
   resizeItem: function ($item) {
     var widths = app.artGrid._widths;
     $item
       .removeClass('large--one-quarter')
-      .css({
-        width: function () {
-          return widths[app.utils.randomIntegerBt(0, widths.length-1)];
-        },
+      .addClass(function () {
+        return 'large--'+widths[app.utils.randomIntegerBt(0, widths.length-1)];
       });
   },
 
@@ -44,32 +42,30 @@ app.artGrid = {
   },
 
   layout: function () {
-    if ( $(window).width() > 768 ) {
-      var grid = app.artGrid._grid;
-      var items = app.artGrid._items;
+    var grid = app.artGrid._grid;
+    var items = app.artGrid._items;
 
-      grid.imagesLoaded( function () {
-        app.utils.shuffleArray(items);
+    grid.imagesLoaded( function () {
+      //app.utils.shuffleArray(items);
 
-        // re-size items
-        items.each( function () {
-          app.artGrid.resizeItem( $(this) );
-        });
-
-        //var Shuffle = window.shuffle;
-        //var element = document.querySelector('.art-grid');
-
-        //var shuffle = new Shuffle(element, {
-          //itemSelector: '.art-grid .grid__item',
-          //sizer: '.art-grid--sizer', //sizer // could also be a selector: '.my-sizer-element'
-        //});
-
-        // fade in
-        app.artGrid.showItems();
+      // re-size items
+      items.each( function () {
+        app.artGrid.resizeItem( $(this) );
       });
-    } else {
-      //this.remove();
-    }
+
+      var Shuffle = window.shuffle;
+      var grid = document.querySelector('.art-grid');
+      new Shuffle(grid, {
+        itemSelector: '.art-grid .grid__item',
+        sizer: '.art-grid--sizer',
+        initialSort: {
+          randomize: true,
+        },
+      });
+
+      // fade in
+      app.artGrid.showItems();
+    });
   },
 
   remove: function () {
@@ -117,17 +113,6 @@ $(function () {
   app.artGrid.layout();
   app.colorBar();
   app.over18check();
-
-  var resizeTO;
-  $(window).resize(function () {
-    if ( $(window).width() > 768 ) {
-      //app.artGrid.showItems(false);
-    };
-    clearTimeout(resizeTO);
-    resizeTO = setTimeout(function () {
-      app.artGrid.layout();
-    }, 500);
-  });
 
   $(window).scroll(app.scrollHandler);
 });

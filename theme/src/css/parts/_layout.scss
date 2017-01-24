@@ -520,9 +520,9 @@ body.colorbar-fixed{
 
 .grid__item__title{
   text-align: center;
-  @include at-query ($max, $medium) {
+  //@include at-query ($max, $medium) {
     margin-bottom: $gutter;  
-  }
+  //}
   // hover
   .supports-no-touch &{
     visibility: hidden;
