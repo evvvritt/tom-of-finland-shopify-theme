@@ -688,11 +688,15 @@ body.lightbox-visible{
     opacity: 1;
     transition: opacity 500ms, visibility 0s;
   }
+  display: flex;
+  align-items:center;
+  justify-content: center;
+  padding:$gutter/2;
   .content{
-    position:absolute;
-    top:$gutter/2; left:$gutter/2;
-    width:calc(100% - #{$gutter});
-    height:calc(100% - #{$gutter});
+    width:100%;
+    height:100%;
+    max-width:1600px;
+    max-height:1280px;
     background-size:contain;
     background-repeat:no-repeat;
     background-position:center center;
@@ -702,13 +706,15 @@ body.lightbox-visible{
   }
 
   &.img-can-overflow{
-    padding:$gutter/2;
     overflow:scroll;
     -webkit-overflow-scrolling: touch;
+    display: block;
     .content{
       position:relative;
       height: auto;
       width:100%;
+      max-height: none;
+      max-width:none;
       background-image:none !important;
       img{
         display: block;

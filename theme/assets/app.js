@@ -82,16 +82,14 @@ app.lbox = function () {
   var body = $('body');
   var closeLbox = function () {
     body.removeClass('lightbox-visible');
-  }
+  };
   // open lightbox
   $(document).on('click', '[data-lbox]', function () {
-    var winW = $(window).width()
-    var src = winW > 768 ? $(this).attr('data-lbox') : $(this).attr('data-lbox-m');
+    var isMobile = $(window).width() <= 768;
+    var src = isMobile ? $(this).attr('data-lbox-m') : $(this).attr('data-lbox');
     body.addClass('lightbox-visible');
     lbox.find('.content').css('background-image', 'url('+src+')').html('<img src="'+src+'" >');
-    lbox.toggleClass('img-can-overflow', function() {
-      return winW > 768
-    });
+    lbox.toggleClass('img-can-overflow', isMobile);
   });
   // update featured image lightbox data
   $(document).on('click', 'a.product-single__thumbnail', function () {
@@ -110,8 +108,8 @@ app.lbox = function () {
   });
   // close
   $(document).on('click', '#closeLightboxBtn', closeLbox);
-  $(document).on('keydown', function(e) {
-    if (e.keyCode === 27) closeLbox()
+  $(document).on('keydown', function (e) {
+    if (e.keyCode === 27) closeLbox();
   });
 };
 
