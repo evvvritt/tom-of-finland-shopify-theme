@@ -2704,6 +2704,64 @@ body.colorbar-fixed #colorBarFixed {
 /*============================================================================
   #Overlays
 ==============================================================================*/
+body.lightbox-visible {
+  overflow: hidden; }
+
+#lightbox {
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: opacity 500ms, visibility 0s 510ms;
+  transition: opacity 500ms, visibility 0s 510ms; }
+  body.lightbox-visible #lightbox {
+    visibility: visible;
+    opacity: 1;
+    -webkit-transition: opacity 500ms, visibility 0s;
+    transition: opacity 500ms, visibility 0s; }
+  #lightbox .content {
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    width: calc(100% - 3rem);
+    height: calc(100% - 3rem);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center; }
+    #lightbox .content img {
+      display: none; }
+  #lightbox.img-can-overflow {
+    padding: 1.5rem;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch; }
+    #lightbox.img-can-overflow .content {
+      position: relative;
+      height: auto;
+      width: 100%;
+      background-image: none !important; }
+      #lightbox.img-can-overflow .content img {
+        display: block;
+        margin: 0 auto;
+        max-width: none;
+        max-height: none; }
+
+#closeLightboxBtn {
+  z-index: 1010;
+  cursor: pointer;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 1.5rem;
+  font-size: 2rem; }
+
+*[data-lbox] {
+  cursor: pointer; }
+
 #overlay18Plus {
   position: fixed;
   top: 0;

@@ -45,27 +45,29 @@ app.artGrid = {
     var grid = app.artGrid._grid;
     var items = app.artGrid._items;
 
-    grid.imagesLoaded( function () {
-      //app.utils.shuffleArray(items);
+    if (grid.length > 0) {
+      grid.imagesLoaded( function () {
+        //app.utils.shuffleArray(items);
 
-      // re-size items
-      items.each( function () {
-        app.artGrid.resizeItem( $(this) );
+        // re-size items
+        items.each( function () {
+          app.artGrid.resizeItem( $(this) );
+        });
+
+        var Shuffle = window.shuffle;
+        var grid = document.querySelector('.art-grid');
+        new Shuffle(grid, {
+          itemSelector: '.art-grid .grid__item',
+          sizer: '.art-grid--sizer',
+          initialSort: {
+            randomize: true,
+          },
+        });
+
+        // fade in
+        app.artGrid.showItems();
       });
-
-      var Shuffle = window.shuffle;
-      var grid = document.querySelector('.art-grid');
-      new Shuffle(grid, {
-        itemSelector: '.art-grid .grid__item',
-        sizer: '.art-grid--sizer',
-        initialSort: {
-          randomize: true,
-        },
-      });
-
-      // fade in
-      app.artGrid.showItems();
-    });
+    }
   },
 
   remove: function () {
@@ -73,6 +75,39 @@ app.artGrid = {
     this._items.removeAttr('style');
     this.showItems();
   },
+};
+
+app.lbox = function () {
+  var lbox = $('#lightbox');
+  var body = $('body');
+  // open lightbox
+  $(document).on('click', '[data-lbox]', function () {
+    var src = $(window).width() > 768 ? $(this).attr('data-lbox') : $(this).attr('data-lbox-m');
+    console.log(src);
+    body.addClass('lightbox-visible');
+    lbox.removeClass('img-can-overflow').find('.content').css('background-image', 'url('+src+')').html('<img src="'+src+'" >');
+  });
+  // update featured image lightbox data
+  $(document).on('click', 'a.product-single__thumbnail', function () {
+    $('#featuredImgLink').attr('data-lbox', $(this).data('lbox-asset')).attr('data-lbox-m', $(this).data('lbox-m-asset'));
+    //console.log($('#featuredImgLink').attr('data-lbox'));
+    //console.log($('#featuredImgLink').attr('data-lbox-m'));
+  });
+  // rescale
+  $(document).on('click', '#lightbox .content', function () {
+    if (lbox.hasClass('img-can-overflow')) {
+      lbox.removeClass('img-can-overflow').scrollTop(0);
+    } else {
+      lbox.addClass('img-can-overflow');
+      var scrollY = lbox.find('.content').outerHeight() - lbox.height();
+      var scrollX = lbox.find('.content').outerWidth() - lbox.width();
+      lbox.scrollTop(scrollY/2).scrollLeft(scrollX/2);
+    }
+  });
+  // close
+  $(document).on('click', '#closeLightboxBtn', function () {
+    body.removeClass('lightbox-visible');
+  });
 };
 
 app.colorBar = function (y) {
@@ -113,6 +148,7 @@ $(function () {
   app.artGrid.layout();
   app.colorBar();
   app.over18check();
+  app.lbox();
 
   $(window).scroll(app.scrollHandler);
 });

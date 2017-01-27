@@ -671,6 +671,66 @@ body.colorbar-fixed{
   #Overlays
 ==============================================================================*/
 
+body.lightbox-visible{
+  overflow: hidden;
+}
+#lightbox{
+  z-index: 1000;
+  position:fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background:white; //rgba(255,255,255,.9);
+  visibility: hidden;
+  opacity:0;
+  transition: opacity 500ms, visibility 0s 510ms;
+  body.lightbox-visible &{
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 500ms, visibility 0s;
+  }
+  .content{
+    position:absolute;
+    top:$gutter/2; left:$gutter/2;
+    width:calc(100% - #{$gutter});
+    height:calc(100% - #{$gutter});
+    background-size:contain;
+    background-repeat:no-repeat;
+    background-position:center center;
+    img {
+      display: none;
+    }
+  }
+
+  &.img-can-overflow{
+    padding:$gutter/2;
+    overflow:scroll;
+    -webkit-overflow-scrolling: touch;
+    .content{
+      position:relative;
+      height: auto;
+      width:100%;
+      background-image:none !important;
+      img{
+        display: block;
+        margin:0 auto;
+        max-width:none;
+        max-height:none;
+      }
+    }
+  }
+}
+#closeLightboxBtn{
+  z-index: 1010;
+  cursor: pointer;
+  position:fixed;
+  top:0; left:0;
+  padding: $gutter/2;
+  font-size:2rem;
+}
+*[data-lbox]{
+  cursor: pointer;
+}
+
 #overlay18Plus{
   position:fixed;
   top:0; left:0;
