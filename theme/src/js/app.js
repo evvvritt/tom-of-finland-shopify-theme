@@ -80,18 +80,22 @@ app.artGrid = {
 app.lbox = function () {
   var lbox = $('#lightbox');
   var body = $('body');
+  var closeLbox = function () {
+    body.removeClass('lightbox-visible');
+  }
   // open lightbox
   $(document).on('click', '[data-lbox]', function () {
-    var src = $(window).width() > 768 ? $(this).attr('data-lbox') : $(this).attr('data-lbox-m');
-    console.log(src);
+    var winW = $(window).width()
+    var src = winW > 768 ? $(this).attr('data-lbox') : $(this).attr('data-lbox-m');
     body.addClass('lightbox-visible');
-    lbox.removeClass('img-can-overflow').find('.content').css('background-image', 'url('+src+')').html('<img src="'+src+'" >');
+    lbox.find('.content').css('background-image', 'url('+src+')').html('<img src="'+src+'" >');
+    lbox.toggleClass('img-can-overflow', function() {
+      return winW > 768
+    });
   });
   // update featured image lightbox data
   $(document).on('click', 'a.product-single__thumbnail', function () {
     $('#featuredImgLink').attr('data-lbox', $(this).data('lbox-asset')).attr('data-lbox-m', $(this).data('lbox-m-asset'));
-    //console.log($('#featuredImgLink').attr('data-lbox'));
-    //console.log($('#featuredImgLink').attr('data-lbox-m'));
   });
   // rescale
   $(document).on('click', '#lightbox .content', function () {
@@ -105,8 +109,9 @@ app.lbox = function () {
     }
   });
   // close
-  $(document).on('click', '#closeLightboxBtn', function () {
-    body.removeClass('lightbox-visible');
+  $(document).on('click', '#closeLightboxBtn', closeLbox);
+  $(document).on('keydown', function(e) {
+    if (e.keyCode === 27) closeLbox()
   });
 };
 
