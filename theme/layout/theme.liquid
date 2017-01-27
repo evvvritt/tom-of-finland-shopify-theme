@@ -213,6 +213,12 @@
                 {% endif %}
               {% endfor %}
               <li>
+                <a class="site-header__search-bar-toggle btn icon-fallback-text icon-search-link">
+                  <span class="icon icon-search" aria-hidden="true"></span>
+                  <span class="fallback-text">{{ 'general.search.submit' | t }}</span>
+                </a>
+              </li>
+              <li>
                   {% comment %}
                     Show number of items in the cart and total cost in the /cart link
                     Ajax Cart Notes:
@@ -259,6 +265,14 @@
       </nav>
 
     </header>
+
+    <div id="headerSearchBar">
+      <div class="wrapper">
+        <div class="xlarge--one-quarter push--xlarge--three-quarters large--one-third push--large--two-thirds">
+          {% include 'search-bar' %}
+        </div>
+      </div>
+    </div>
     
     {% if settings.announcement_enable %}
     {% assign productt = all_products[settings.announcement_product] %}

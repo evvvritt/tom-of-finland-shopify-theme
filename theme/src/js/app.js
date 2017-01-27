@@ -140,6 +140,12 @@ app.over18check = function () {
   }
 };
 
+app.searchBar = function () {
+  $(document).on('click', '.site-header__search-bar-toggle', function () {
+    $('#headerSearchBar').toggle();
+  });
+}
+
 app.scrollHandler = function () {
   var y = $(window).scrollTop();
   app.colorBar(y);
@@ -152,6 +158,7 @@ $(function () {
   app.colorBar();
   app.over18check();
   app.lbox();
+  app.searchBar();
 
   $(window).scroll(app.scrollHandler);
 });

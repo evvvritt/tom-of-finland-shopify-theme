@@ -786,6 +786,133 @@
   .grid-uniform .large--six-twelfths:nth-child(2n+1) {
     clear: both; } }
 
+@media only screen and (min-width: 1024px) {
+  /** Whole */
+  .xlarge--one-whole {
+    width: 100%; }
+  /* Halves */
+  .xlarge--one-half {
+    width: 50%; }
+  /* Thirds */
+  .xlarge--one-third {
+    width: 33.333%; }
+  .xlarge--two-thirds {
+    width: 66.666%; }
+  /* Quarters */
+  .xlarge--one-quarter {
+    width: 25%; }
+  .xlarge--two-quarters {
+    width: 50%; }
+  .xlarge--three-quarters {
+    width: 75%; }
+  /* Fifths */
+  .xlarge--one-fifth {
+    width: 20%; }
+  .xlarge--two-fifths {
+    width: 40%; }
+  .xlarge--three-fifths {
+    width: 60%; }
+  .xlarge--four-fifths {
+    width: 80%; }
+  /* Sixths */
+  .xlarge--one-sixth {
+    width: 16.666%; }
+  .xlarge--two-sixths {
+    width: 33.333%; }
+  .xlarge--three-sixths {
+    width: 50%; }
+  .xlarge--four-sixths {
+    width: 66.666%; }
+  .xlarge--five-sixths {
+    width: 83.333%; }
+  /* Eighths */
+  .xlarge--one-eighth {
+    width: 12.5%; }
+  .xlarge--two-eighths {
+    width: 25%; }
+  .xlarge--three-eighths {
+    width: 37.5%; }
+  .xlarge--four-eighths {
+    width: 50%; }
+  .xlarge--five-eighths {
+    width: 62.5%; }
+  .xlarge--six-eighths {
+    width: 75%; }
+  .xlarge--seven-eighths {
+    width: 87.5%; }
+  /* Tenths */
+  .xlarge--one-tenth {
+    width: 10%; }
+  .xlarge--two-tenths {
+    width: 20%; }
+  .xlarge--three-tenths {
+    width: 30%; }
+  .xlarge--four-tenths {
+    width: 40%; }
+  .xlarge--five-tenths {
+    width: 50%; }
+  .xlarge--six-tenths {
+    width: 60%; }
+  .xlarge--seven-tenths {
+    width: 70%; }
+  .xlarge--eight-tenths {
+    width: 80%; }
+  .xlarge--nine-tenths {
+    width: 90%; }
+  /* Twelfths */
+  .xlarge--one-twelfth {
+    width: 8.333%; }
+  .xlarge--two-twelfths {
+    width: 16.666%; }
+  .xlarge--three-twelfths {
+    width: 25%; }
+  .xlarge--four-twelfths {
+    width: 33.333%; }
+  .xlarge--five-twelfths {
+    width: 41.666%; }
+  .xlarge--six-twelfths {
+    width: 50%; }
+  .xlarge--seven-twelfths {
+    width: 58.333%; }
+  .xlarge--eight-twelfths {
+    width: 66.666%; }
+  .xlarge--nine-twelfths {
+    width: 75%; }
+  .xlarge--ten-twelfths {
+    width: 83.333%; }
+  .xlarge--eleven-twelfths {
+    width: 91.666%; }
+  .xlarge--show {
+    display: block !important; }
+  .xlarge--hide {
+    display: none !important; }
+  .xlarge--text-left {
+    text-align: left !important; }
+  .xlarge--text-right {
+    text-align: right !important; }
+  .xlarge--text-center {
+    text-align: center !important; }
+  .xlarge--left {
+    float: left !important; }
+  .xlarge--right {
+    float: right !important; }
+  .grid-uniform .xlarge--one-half:nth-child(2n+1),
+  .grid-uniform .xlarge--one-third:nth-child(3n+1),
+  .grid-uniform .xlarge--one-quarter:nth-child(4n+1),
+  .grid-uniform .xlarge--one-fifth:nth-child(5n+1),
+  .grid-uniform .xlarge--one-sixth:nth-child(6n+1),
+  .grid-uniform .xlarge--two-sixths:nth-child(3n+1),
+  .grid-uniform .xlarge--three-sixths:nth-child(2n+1),
+  .grid-uniform .xlarge--two-eighths:nth-child(4n+1),
+  .grid-uniform .xlarge--four-eighths:nth-child(2n+1),
+  .grid-uniform .xlarge--five-tenths:nth-child(2n+1),
+  .grid-uniform .xlarge--one-twelfth:nth-child(12n+1),
+  .grid-uniform .xlarge--two-twelfths:nth-child(6n+1),
+  .grid-uniform .xlarge--three-twelfths:nth-child(4n+1),
+  .grid-uniform .xlarge--four-twelfths:nth-child(3n+1),
+  .grid-uniform .xlarge--six-twelfths:nth-child(2n+1) {
+    clear: both; } }
+
 /*============================================================================
   PUSH
     - Push classes, to move grid items over to the right by certain amounts
@@ -1220,6 +1347,103 @@
   .push--large--ten-twelfths {
     left: 83.333%; }
   .push--large--eleven-twelfths {
+    left: 91.666%; } }
+
+@media only screen and (min-width: 1024px) {
+  /* Whole */
+  .push--xlarge--one-whole {
+    left: 100%; }
+  /* Halves */
+  .push--xlarge--one-half {
+    left: 50%; }
+  /* Thirds */
+  .push--xlarge--one-third {
+    left: 33.333%; }
+  .push--xlarge--two-thirds {
+    left: 66.666%; }
+  /* Quarters */
+  .push--xlarge--one-quarter {
+    left: 25%; }
+  .push--xlarge--two-quarters {
+    left: 50%; }
+  .push--xlarge--three-quarters {
+    left: 75%; }
+  /* Fifths */
+  .push--xlarge--one-fifth {
+    left: 20%; }
+  .push--xlarge--two-fifths {
+    left: 40%; }
+  .push--xlarge--three-fifths {
+    left: 60%; }
+  .push--xlarge--four-fifths {
+    left: 80%; }
+  /* Sixths */
+  .push--xlarge--one-sixth {
+    left: 16.666%; }
+  .push--xlarge--two-sixths {
+    left: 33.333%; }
+  .push--xlarge--three-sixths {
+    left: 50%; }
+  .push--xlarge--four-sixths {
+    left: 66.666%; }
+  .push--xlarge--five-sixths {
+    left: 83.333%; }
+  /* Eighths */
+  .push--xlarge--one-eighth {
+    left: 12.5%; }
+  .push--xlarge--two-eighths {
+    left: 25%; }
+  .push--xlarge--three-eighths {
+    left: 37.5%; }
+  .push--xlarge--four-eighths {
+    left: 50%; }
+  .push--xlarge--five-eighths {
+    left: 62.5%; }
+  .push--xlarge--six-eighths {
+    left: 75%; }
+  .push--xlarge--seven-eighths {
+    left: 87.5%; }
+  /* Tenths */
+  .push--xlarge--one-tenth {
+    left: 10%; }
+  .push--xlarge--two-tenths {
+    left: 20%; }
+  .push--xlarge--three-tenths {
+    left: 30%; }
+  .push--xlarge--four-tenths {
+    left: 40%; }
+  .push--xlarge--five-tenths {
+    left: 50%; }
+  .push--xlarge--six-tenths {
+    left: 60%; }
+  .push--xlarge--seven-tenths {
+    left: 70%; }
+  .push--xlarge--eight-tenths {
+    left: 80%; }
+  .push--xlarge--nine-tenths {
+    left: 90%; }
+  /* Twelfths */
+  .push--xlarge--one-twelfth {
+    left: 8.333%; }
+  .push--xlarge--two-twelfths {
+    left: 16.666%; }
+  .push--xlarge--three-twelfths {
+    left: 25%; }
+  .push--xlarge--four-twelfths {
+    left: 33.333%; }
+  .push--xlarge--five-twelfths {
+    left: 41.666%; }
+  .push--xlarge--six-twelfths {
+    left: 50%; }
+  .push--xlarge--seven-twelfths {
+    left: 58.333%; }
+  .push--xlarge--eight-twelfths {
+    left: 66.666%; }
+  .push--xlarge--nine-twelfths {
+    left: 75%; }
+  .push--xlarge--ten-twelfths {
+    left: 83.333%; }
+  .push--xlarge--eleven-twelfths {
     left: 91.666%; } }
 
 /*============================================================================
@@ -2288,6 +2512,19 @@ ol.alpha {
   .site-nav > li, .site-nav--mobile > li {
     position: relative;
     display: inline-block; }
+  .site-nav .icon-search, .site-nav--mobile .icon-search {
+    font-size: 2.5em;
+    margin-bottom: -.25em; }
+    .site-nav .icon-search:before, .site-nav--mobile .icon-search:before {
+      vertical-align: baseline; }
+  .site-nav .icon-search-link:hover, .site-nav--mobile .icon-search-link:hover, .site-nav .icon-search-link:hover, .site-nav--mobile .icon-search-link:hover {
+    background: transparent;
+    color: red; }
+
+#headerSearchBar {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  display: none; }
 
 /*================ Home to hamburger and cart that toggle drawers ================*/
 .text-right .site-nav--mobile {
@@ -2295,6 +2532,9 @@ ol.alpha {
 
 .site-nav--mobile .icon-cart {
   font-size: 69%; }
+
+.site-nav--mobile .icon-search {
+  font-size: 1.75em; }
 
 .site-nav__link {
   display: block;
