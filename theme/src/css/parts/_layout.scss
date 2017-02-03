@@ -201,6 +201,7 @@
   margin: 0;
   z-index: $zindexNavDropdowns;
   background:$colorHeaderBg;
+  text-align: left;
 
   .supports-no-touch .site-nav--has-dropdown:hover &,
   .site-nav--has-dropdown.nav-hover &,

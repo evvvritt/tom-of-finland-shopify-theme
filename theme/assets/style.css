@@ -2562,7 +2562,8 @@ ol.alpha {
   left: 0;
   margin: 0;
   z-index: 5;
-  background: #040707; }
+  background: #040707;
+  text-align: left; }
   .supports-no-touch .site-nav--has-dropdown:hover .site-nav__dropdown,
   .site-nav--has-dropdown.nav-hover .site-nav__dropdown,
   .nav-focus + .site-nav__dropdown {
