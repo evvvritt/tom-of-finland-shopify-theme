@@ -2981,7 +2981,10 @@ body.lightbox-visible {
     max-height: 1280px;
     background-size: contain;
     background-repeat: no-repeat;
-    background-position: center center; }
+    background-position: center center;
+    cursor: pointer; }
+    .supports-no-touch #lightbox .content {
+      cursor: zoom-in; }
     #lightbox .content img {
       display: none; }
   #lightbox.img-can-overflow {
@@ -2999,7 +3002,8 @@ body.lightbox-visible {
         display: block;
         margin: 0 auto;
         max-width: none;
-        max-height: none; }
+        max-height: none;
+        cursor: zoom-out; }
 
 #closeLightboxBtn {
   z-index: 1010;
@@ -3012,6 +3016,8 @@ body.lightbox-visible {
 
 *[data-lbox] {
   cursor: pointer; }
+  .supports-no-touch *[data-lbox] {
+    cursor: zoom-in; }
 
 #overlay18Plus {
   position: fixed;
