@@ -104,36 +104,38 @@
               {% endfor %}
             </select>
             
-            <div class="quantity-wrapper">
-              <label for="Quantity" class="quantity-selector">{{ 'products.product.quantity' | t }}</label>
-              <input type="number" id="Quantity" name="quantity" value="1" min="1" class="quantity-selector">
-            </div>
+            <div class="flexgrid">
 
-            <ul class="inline-list social-icons">
-              {% assign page_url = shop.url | append: product.url %}
-              <li>
-                <!-- https://twitter.com/intent/tweet?url={url}&text={title}&via={via}&hashtags={hashtags} -->
-                <a class="icon-fallback-text" href="https://twitter.com/intent/tweet?url={{ page_url | url_encode }}&via=tomsfoundation&hashtags=tomoffinland" title="Share on Twitter" target="_">
-                  <span class="icon icon-twitter" aria-hidden="true"></span>
-                  <span class="fallback-text">Tweet</span>
-                </a>
-              </li>
-              <li>
-                <!-- https://www.facebook.com/dialog/share?app_id={app_id}&display=page&href={url}&redirect_uri={redirect_url} -->
-                <a class="icon-fallback-text" href="https://www.facebook.com/sharer.php?u={{ page_url }}" title="Share on Facebook">
-                  <span class="icon icon-facebook" aria-hidden="true"></span>
-                  <span class="fallback-text">Facebook</span>
-                </a>
-              </li>
-              <li>
-                <!-- https://pinterest.com/pin/create/bookmarklet/?media={img}&url={url}&is_video={is_video}&description={title} -->
-                <a class="icon-fallback-text" href="https://pinterest.com/pin/create/bookmarklet/?media={{product.featured_image | img_url: '1024x' }}&url={{page_url}}&is_video=false&description={{ product.description | url_escape }}" title="Share on Pinterest" target="_blank">
-                  <span class="icon icon-pinterest" aria-hidden="true"></span>
-                  <span class="fallback-text">Pin It</span>
-                </a>
-              </li>
-            </ul>
-            
+              <div class="quantity-wrapper">
+                <label for="Quantity" class="quantity-selector">{{ 'products.product.quantity' | t }}</label>
+                <input type="number" id="Quantity" name="quantity" value="1" min="1" class="quantity-selector">
+              </div>
+
+              <ul class="inline-list social-icons">
+                {% assign page_url = shop.url | append: product.url %}
+                <li>
+                  <!-- https://twitter.com/intent/tweet?url={url}&text={title}&via={via}&hashtags={hashtags} -->
+                  <a class="icon-fallback-text" href="https://twitter.com/intent/tweet?url={{ page_url | url_encode }}&via=tomsfoundation&hashtags=tomoffinland" title="Share on Twitter" target="_">
+                    <span class="icon icon-twitter" aria-hidden="true"></span>
+                    <span class="fallback-text">Tweet</span>
+                  </a>
+                </li>
+                <li>
+                  <!-- https://www.facebook.com/dialog/share?app_id={app_id}&display=page&href={url}&redirect_uri={redirect_url} -->
+                  <a class="icon-fallback-text" href="https://www.facebook.com/sharer.php?u={{ page_url }}" title="Share on Facebook">
+                    <span class="icon icon-facebook" aria-hidden="true"></span>
+                    <span class="fallback-text">Facebook</span>
+                  </a>
+                </li>
+                <li>
+                  <!-- https://pinterest.com/pin/create/bookmarklet/?media={img}&url={url}&is_video={is_video}&description={title} -->
+                  <a class="icon-fallback-text" href="https://pinterest.com/pin/create/bookmarklet/?media={{product.featured_image | img_url: '1024x' }}&url={{page_url}}&is_video=false&description={{ product.description | url_escape }}" title="Share on Pinterest" target="_blank">
+                    <span class="icon icon-pinterest" aria-hidden="true"></span>
+                    <span class="fallback-text">Pin It</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
 
           <button type="submit" name="add" id="AddToCart" class="btn">
