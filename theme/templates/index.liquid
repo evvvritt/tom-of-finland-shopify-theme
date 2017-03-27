@@ -17,7 +17,7 @@
     Loop through products in your Frontpage collection.
     This collection is created by default, but you must add products to it.
   {% endcomment %}
-  {% for product in collections.frontpage.products limit:20 %}
+  {% for product in collections.frontpage.products %}
 
     {% assign grid_item_width = 'large--one-quarter medium--one-half' %}
     {% include 'product-grid-item' %}
