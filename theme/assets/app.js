@@ -122,6 +122,14 @@ app.colorBar = function (y) {
   }
 };
 
+app.applyAppClasses = function () {
+  // add classes for app pages (gift registry)
+  var path = window.location.pathname;
+  if (path.indexOf('/apps/') === 0 && path.split('/').length >= 3) {
+    app._body.addClass('template-app-' + path.split('/')[2]);
+  }
+};
+
 app.over18check = function () {
   var overlay = $('#overlay18Plus');
   if ( overlay.length > 0 ) {
@@ -144,7 +152,7 @@ app.searchBar = function () {
   $(document).on('click', '.site-header__search-bar-toggle', function () {
     $('#headerSearchBar').toggle();
   });
-}
+};
 
 app.scrollHandler = function () {
   var y = $(window).scrollTop();
@@ -159,6 +167,7 @@ $(function () {
   app.over18check();
   app.lbox();
   app.searchBar();
+  app.applyAppClasses();
 
   $(window).scroll(app.scrollHandler);
 });

@@ -471,11 +471,17 @@
   }
 }
 
+/*============================================================================
+  Color Bar
+==============================================================================*/
+
+
 .colorbar{
   display: none;
   .template-index &, 
   .template-collection &,
-  .template-product &{
+  .template-product &,
+  .template-app-giftregistry &{
     display: block;
   }
   width:100%;
@@ -494,6 +500,13 @@ body.colorbar-fixed{
   }
   #colorBarFixed{
     visibility: visible;
+  }
+}
+
+// colors
+.colorbar{
+  .template-app-giftregistry &{
+    background-color:#33FFFF;
   }
 }
 

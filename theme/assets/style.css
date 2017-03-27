@@ -2758,6 +2758,9 @@ ol.alpha {
   .site-footer .site-nav__link {
     padding: 0; } }
 
+/*============================================================================
+  Color Bar
+==============================================================================*/
 .colorbar {
   display: none;
   width: 100%;
@@ -2765,7 +2768,8 @@ ol.alpha {
   background-color: #fa84d7; }
   .template-index .colorbar,
   .template-collection .colorbar,
-  .template-product .colorbar {
+  .template-product .colorbar,
+  .template-app-giftregistry .colorbar {
     display: block; }
 
 #colorBarFixed {
@@ -2779,6 +2783,9 @@ body.colorbar-fixed #colorBarStatic {
 
 body.colorbar-fixed #colorBarFixed {
   visibility: visible; }
+
+.template-app-giftregistry .colorbar {
+  background-color: #33FFFF; }
 
 /*============================================================================
   #Product and Collection Grids

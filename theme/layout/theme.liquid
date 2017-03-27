@@ -50,7 +50,7 @@
 {% comment %}
   Add the page template as a class for easy page or template specific styling.
 {% endcomment %}
-<body id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }} colorbar-fixed" >
+<body id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }} colorbar-fixed" data-pageurl="{{ page.url }}">
   
   <div id="NavDrawer" class="drawer drawer--left">
     <div class="drawer__header">
