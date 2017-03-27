@@ -358,6 +358,14 @@
                   </a>
                 </li>
               {% endif %}
+              {% if settings.social_tumblr_link != blank %}
+                <li>
+                  <a class="icon-fallback-text" href="{{ settings.social_tumblr_link }}" title="{{ shop.name }} on Tumblr">
+                    <span class="icon icon-tumblr" aria-hidden="true"></span>
+                    <span class="fallback-text">Tumblr</span>
+                  </a>
+                </li>
+              {% endif %}
               {% if settings.social_facebook_link != blank %}
                 <li>
                   <a class="icon-fallback-text" href="{{ settings.social_facebook_link }}" title="{{ shop.name }} on Facebook">
