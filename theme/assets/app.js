@@ -150,7 +150,7 @@ app.over18check = function () {
 
 app.searchBar = function () {
   $(document).on('click', '.site-header__search-bar-toggle', function () {
-    $('#headerSearchBar').toggle();
+    $('#headerSearchBar').toggle().find('input[type="search"]').focus();
   });
 };
 
