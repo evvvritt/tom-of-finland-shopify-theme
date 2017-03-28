@@ -24,8 +24,9 @@ app.utils = {
 app.artGrid = {
 
   _grid: $('.art-grid'),
-  _items: $('.art-grid').children('.grid__item'),
+  _item: $('.art-grid').children('.grid__item'),
   _widths: ['two-twelfths', 'three-twelfths', 'three-twelfths', 'four-twelfths', 'four-twelfths', 'four-twelfths', 'four-twelfths', 'five-twelfths'],
+  _minWinWidth: 768,
 
   resizeItem: function ($item) {
     var widths = app.artGrid._widths;
@@ -38,26 +39,25 @@ app.artGrid = {
 
   showItems: function (bool) {
     bool = typeof bool === 'undefined' ? true : false;
-    this._items.toggleClass('visible', bool);
+    this._grid.find('.grid__item').toggleClass('visible', bool);
   },
 
-  layout: function () {
-    var grid = app.artGrid._grid;
-    var items = app.artGrid._items;
+  layout: function ($container, callback) {
+    var grid = typeof $container === 'undefined' ? this._grid : $container;
+    var items = grid.find('.grid__item');
 
     if (grid.length > 0) {
       grid.imagesLoaded( function () {
-        //app.utils.shuffleArray(items);
-
         // re-size items
         items.each( function () {
           app.artGrid.resizeItem( $(this) );
         });
 
+        // shuffle with Shuffle js
         var Shuffle = window.shuffle;
-        var grid = document.querySelector('.art-grid');
+        // var grid = document.querySelector('.art-grid');
         new Shuffle(grid, {
-          itemSelector: '.art-grid .grid__item',
+          itemSelector: '.grid__item',
           sizer: '.art-grid--sizer',
           initialSort: {
             randomize: true,
@@ -66,6 +66,9 @@ app.artGrid = {
 
         // fade in
         app.artGrid.showItems();
+
+        // callback
+        if (typeof callback === 'function') callback();
       });
     }
   },
@@ -154,9 +157,49 @@ app.searchBar = function () {
   });
 };
 
+app.infiniteScroll = {
+  loading: false,
+  nextPageUrl: $('.pagination .next a').attr('href'),
+  onScroll: function (pageY) {
+    if (sessionStorage.dev) {
+      if (this.nextPageUrl && !this.loading && $(window).width() >= 768) {
+        if (pageY + $(window).height() >= $(document).height() - $(window).height() / 4 ) {
+          this.loading = true;
+          $.ajax({
+            url: this.nextPageUrl,
+            success: function (data) {
+              // update pagination
+              var $pagination = $(data).find('.pagination');
+              if ($pagination) {
+                $('.pagination').replaceWith($pagination);
+                app.infiniteScroll.nextPageUrl = $pagination.find('.next a').attr('href');
+              } else {
+                $('.pagination').remove();
+              }
+              // add content
+              var $container = $(data).find('.ajax-container');
+              var $currentContainer = $('.ajax-container').last();
+              $currentContainer.after($container);
+              // art grid ?
+              if ($currentContainer.hasClass('art-grid')) {
+                app.artGrid.layout($container, function () {
+                  app.infiniteScroll.loading = false;
+                });
+              } else {
+                app.infiniteScroll.loading = false;
+              }
+            },
+          });
+        }
+      }
+    }
+  },
+};
+
 app.scrollHandler = function () {
   var y = $(window).scrollTop();
   app.colorBar(y);
+  app.infiniteScroll.onScroll(y);
 };
 
 // INIT ==================================
@@ -170,4 +213,5 @@ $(function () {
   app.applyAppClasses();
 
   $(window).scroll(app.scrollHandler);
+  console.log('dev?:' + sessionStorage.dev );
 });

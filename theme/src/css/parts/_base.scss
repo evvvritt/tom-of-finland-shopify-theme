@@ -519,6 +519,14 @@ label.error {
   #Pagination
 ==============================================================================*/
 .pagination {
+
+  // hide on js environments
+  .supports-js & {
+    @media (min-width:786px) {
+      display:none;  
+    }
+  }
+
   border-top:1px solid $colorPrimary;
   padding-top:3em;
   margin-bottom: 1em;
@@ -527,14 +535,10 @@ label.error {
   > span {
     display: inline-block;
     line-height: 1;
+    padding:.8em;
   }
 
-  a {
-    display: block;
-  }
-
-  a,
   .page.current {
-    padding: 8px;
+    font-weight: bold;
   }
 }

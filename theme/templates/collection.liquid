@@ -6,14 +6,14 @@
 
 {% endcomment %}
 
-{% paginate collection.products by 20 %}
+{% paginate collection.products by 25 %}
 
 
     {% comment %}
       Use class grid-uniform to have evenly sized columns clear
       each other properly at each breakpoint.
     {% endcomment %}
-    <div class="grid-uniform art-grid">
+    <div class="grid-uniform art-grid ajax-container">
 
       {% comment %}
         Loop through our products in the current collection.

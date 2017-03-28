@@ -44,7 +44,7 @@
 
         <hr class="hr--clear">
 
-        <div class="grid-uniform">
+        <div class="grid-uniform ajax-container">
           {% for item in search.results %}
             {% comment %}
               Check if the product is on sale and set a variable to be used below.
@@ -120,7 +120,7 @@
                     <p>{{ item.content | strip_html | truncatewords: 50 }}</p>
                   </div>
                 </div>
-                {% unless forloop.last %}<hr>{% endunless %}
+                <hr>
               </div>
               <!-- //list search results-->
             {% else %}
