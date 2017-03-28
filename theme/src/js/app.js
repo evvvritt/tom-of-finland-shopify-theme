@@ -159,41 +159,39 @@ app.searchBar = function () {
 };
 
 app.infiniteScroll = {
-  loading: false,
+  //loading: false,
   nextPageUrl: $('.pagination .next a').attr('href'),
   onScroll: function (pageY) {
-    // if (sessionStorage.dev) {
-      if (this.nextPageUrl && !this.loading && $(window).width() >= 768) {
-        if (pageY + $(window).height() >= $(document).height() - $(window).height() / 4 ) {
-          this.loading = true;
-          $.ajax({
-            url: this.nextPageUrl,
-            success: function (data) {
-              // update pagination
-              var $pagination = $(data).find('.pagination');
-              if ($pagination) {
-                $('.pagination').replaceWith($pagination);
-                app.infiniteScroll.nextPageUrl = $pagination.find('.next a').attr('href');
-              } else {
-                $('.pagination').remove();
-              }
-              // add content
-              var $container = $(data).find('.ajax-container');
-              var $currentContainer = $('.ajax-container').last();
-              $currentContainer.after($container);
-              // art grid ?
-              if ($currentContainer.hasClass('art-grid')) {
-                app.artGrid.layout($container, function () {
-                  app.infiniteScroll.loading = false;
-                });
-              } else {
-                app.infiniteScroll.loading = false;
-              }
-            },
-          });
-        }
+    if (this.nextPageUrl && !app._body.hasClass('infscroll-loading') && $(window).width() >= 768) {
+      if (pageY + $(window).height() >= $(document).height() - $(window).height() / 4 ) {
+        app._body.addClass('infscroll-loading');
+        $.ajax({
+          url: this.nextPageUrl,
+          success: function (data) {
+            // update pagination
+            var $pagination = $(data).find('.pagination');
+            if ($pagination) {
+              $('.pagination').replaceWith($pagination);
+              app.infiniteScroll.nextPageUrl = $pagination.find('.next a').attr('href');
+            } else {
+              $('.pagination').remove();
+            }
+            // add content
+            var $container = $(data).find('.ajax-container');
+            var $currentContainer = $('.ajax-container').last();
+            $currentContainer.after($container);
+            // art grid ?
+            if ($currentContainer.hasClass('art-grid')) {
+              app.artGrid.layout($container, function () {
+                app._body.removeClass('infscroll-loading');
+              });
+            } else {
+              app._body.removeClass('infscroll-loading');
+            }
+          },
+        });
       }
-    // }
+    }
   },
 };
 

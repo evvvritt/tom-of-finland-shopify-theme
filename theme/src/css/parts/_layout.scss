@@ -371,7 +371,6 @@
   position:absolute;
   left:0; bottom:0;
   width:100%;
-  background-color: $colorFooterBg;
   color: $colorFooterText;
 
   @include at-query ($max, $medium){
@@ -382,6 +381,7 @@
   .wrapper{
     padding-top: 0.75em;
     padding-bottom: 0.75em;
+    background-color: $colorFooterBg;
   }
 
   .social-icons{
@@ -481,12 +481,12 @@
   .template-index &, 
   .template-collection &,
   .template-product &,
+  .template-search &,
   .template-app-giftregistry &{
     display: block;
   }
   width:100%;
   height:20px;
-  background-color:#fa84d7;
 }
 #colorBarFixed{
   position:fixed;
@@ -505,10 +505,34 @@ body.colorbar-fixed{
 
 // colors
 .colorbar{
+  background-color:#fa84d7;
   .template-app-giftregistry &{
     background-color:#33FFFF;
   }
+  .template-search &{
+    background-color:gray;
+  }
 }
+
+// animate loading
+.colorbar {
+  body.infscroll-loading & {
+    animation: strobe 1.5s infinite;
+  }  
+}
+
+@keyframes strobe{
+  0% {
+    opacity:1;
+  }
+  50% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
 
 /*============================================================================
   #Product and Collection Grids
