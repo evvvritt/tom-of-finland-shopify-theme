@@ -1902,6 +1902,8 @@ label.error {
   #Pagination
 ==============================================================================*/
 .pagination {
+  border-top: 1px solid #040707;
+  padding-top: 3em;
   margin-bottom: 1em;
   text-align: center; }
   .pagination > span {
