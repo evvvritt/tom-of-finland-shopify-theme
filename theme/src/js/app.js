@@ -27,6 +27,7 @@ app.artGrid = {
   _item: $('.art-grid').children('.grid__item'),
   _widths: ['two-twelfths', 'three-twelfths', 'three-twelfths', 'four-twelfths', 'four-twelfths', 'four-twelfths', 'four-twelfths', 'five-twelfths'],
   _minWinWidth: 768,
+  _shuffle: null,
 
   resizeItem: function ($item) {
     var widths = app.artGrid._widths;
@@ -39,7 +40,7 @@ app.artGrid = {
 
   showItems: function (bool) {
     bool = typeof bool === 'undefined' ? true : false;
-    this._grid.find('.grid__item').toggleClass('visible', bool);
+    $('.art-grid').find('.grid__item').toggleClass('visible', bool);
   },
 
   layout: function ($container, callback) {
@@ -56,7 +57,7 @@ app.artGrid = {
         // shuffle with Shuffle js
         var Shuffle = window.shuffle;
         // var grid = document.querySelector('.art-grid');
-        new Shuffle(grid, {
+        app.artGrid._shuffle = new Shuffle(grid, {
           itemSelector: '.grid__item',
           sizer: '.art-grid--sizer',
           initialSort: {
@@ -161,7 +162,7 @@ app.infiniteScroll = {
   loading: false,
   nextPageUrl: $('.pagination .next a').attr('href'),
   onScroll: function (pageY) {
-    if (sessionStorage.dev) {
+    // if (sessionStorage.dev) {
       if (this.nextPageUrl && !this.loading && $(window).width() >= 768) {
         if (pageY + $(window).height() >= $(document).height() - $(window).height() / 4 ) {
           this.loading = true;
@@ -192,7 +193,7 @@ app.infiniteScroll = {
           });
         }
       }
-    }
+    // }
   },
 };
 

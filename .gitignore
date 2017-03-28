@@ -4,3 +4,10 @@ node_modules
 bower_components
 gulp-tasks/gulp-content.js
 npm-debug.log
+
+theme/assets/style.css
+theme/assets/style.min.css
+theme/assets/app.js
+theme/assets/app.min.js
+theme/assets/plugins.js
+theme/assets/plugins.min.js

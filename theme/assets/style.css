@@ -1906,9 +1906,6 @@ label.error {
   padding-top: 3em;
   margin-bottom: 1em;
   text-align: center; }
-  @media (min-width: 786px) {
-    .supports-js .pagination {
-      display: none; } }
   .pagination > span {
     display: inline-block;
     line-height: 1;
