@@ -519,6 +519,8 @@ label.error {
   #Pagination
 ==============================================================================*/
 .pagination {
+  border-top:1px solid $colorPrimary;
+  padding-top:3em;
   margin-bottom: 1em;
   text-align: center;
 
