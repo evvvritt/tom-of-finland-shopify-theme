@@ -523,7 +523,7 @@ label.error {
   // hide on js environments
   .supports-js & {
     @media (min-width:786px) {
-      // display:none;  
+      display:none;  
     }
   }
 
