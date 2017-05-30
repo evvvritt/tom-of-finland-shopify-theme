@@ -1,0 +1,17 @@
+{% if settings.announcement_enable %}
+    {% assign duration = settings.announcement_ticker_duration %}
+    <aside id="headerAnnouncement" class="header-announcement header-announcement--ticker">
+      <div class="ticker-wrap">
+        <div class="ticker" style="-webkit-animation-duration: {{ duration }}s; animation-duration: {{ duration }}s; ">
+          {% for link in linklists.announcements.links %}
+          <div class="ticker__item"><a href="{{ link.url }}">{{ link.title }}</a></div>
+          {% endfor %}
+          {% for link in linklists.announcements.links %}
+          <div class="ticker__item"><a href="{{ link.url }}">{{ link.title }}</a></div>
+          {% endfor %}
+        </div>
+      </div>
+    </aside>
+    {% endif %}
+
+    

@@ -83,7 +83,6 @@
 }
 
 .header-announcement{
-  display:none;
   font-size:.9em;
   padding-top:2.6666666667em;
   margin-bottom: 3em;
@@ -99,6 +98,27 @@
 
   @include at-query ($max, $small) {
     text-align: center;
+  }
+
+  &.header-announcement--ticker{
+    display:none;
+    a{
+      color:inherit;
+      &:hover{
+        color:$colorBtnPrimaryHover;
+      }
+    }
+    .ticker__item{
+      &:nth-child(3n+1){
+        color:pink;
+      }
+      &:nth-child(3n+2){
+        color: orange; 
+      }
+      &:nth-child(3n){
+        color:lightblue; // #F7CAEB;  
+      }
+    }
   }
 }
 

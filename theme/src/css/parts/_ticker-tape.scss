@@ -6,7 +6,7 @@
 </div>
 */
 
-$duration: 15s;
+$duration: 45s;
 
 @-webkit-keyframes ticker {
   0% {
@@ -35,6 +35,7 @@ $duration: 15s;
 }
 
 .ticker-wrap {
+  box-sizing:content-box; // important
   width: 100%;
   overflow: hidden;
   height: 1em;
@@ -42,7 +43,6 @@ $duration: 15s;
 }
 
 .ticker {
-    
   display: inline-block;
   height: 1em;
   line-height: 1em;  
@@ -57,10 +57,14 @@ $duration: 15s;
          animation-name: ticker;
   -webkit-animation-duration: $duration;
           animation-duration: $duration;
+
+  &:hover{
+    -webkit-animation-play-state: paused; /* Safari 4.0 - 8.0 */
+    animation-play-state: paused;
+  }
   
   &__item {
     display: inline-block;
-    padding: 0 2em; 
   }
   
 }

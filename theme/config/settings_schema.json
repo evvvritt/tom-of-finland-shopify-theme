@@ -26,12 +26,18 @@
     "settings": [
       {
         "type": "header",
-        "content": "Product"
+        "content": "Settings"
       },
       {
         "type": "checkbox",
         "id": "announcement_enable",
         "label": "Show"
+      },
+      {
+        "type": "text",
+        "id": "announcement_ticker_duration",
+        "label": "Ticker Animation Duration",
+        "info": "Enter a number in seconds, default is 45"
       },
       {
         "type": "product",
