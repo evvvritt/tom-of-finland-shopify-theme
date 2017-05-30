@@ -277,15 +277,12 @@
     {% if settings.announcement_enable %}
     {% assign productt = all_products[settings.announcement_product] %}
     <aside id="headerAnnouncement" class="header-announcement">
-      <div class="wrapper">
-        <a href="{{ productt.url }}">
-          <span>{{ settings.announcement_date }}</span>&nbsp; 
-          {% if settings.announcement_title == '' %}
-            {{productt.title}}
-          {% else %}
-            {{settings.announcement_title}}
-          {% endif %}
-        </a>
+      <div class="ticker-wrap">
+        <div class="ticker">
+          {% for link in linklists.announcements.links %}
+          <div class="ticker__item"><a href="{{ link.url }}">{{ link.title }}</a></div>
+          {% endfor %}
+        </div>
       </div>
     </aside>
     {% endif %}
