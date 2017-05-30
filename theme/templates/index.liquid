@@ -7,33 +7,44 @@
     - http://docs.shopify.com/themes/liquid-variables/global
 {% endcomment %}
 
-{% comment %}
-  Use class grid-uniform to have evenly sized columns clear
-  each other properly at each breakpoint.
-{% endcomment %}
-<div class="art-grid">
+{% paginate collections.frontpage.products by 25 %}
 
   {% comment %}
-    Loop through products in your Frontpage collection.
-    This collection is created by default, but you must add products to it.
+    Use class grid-uniform to have evenly sized columns clear
+    each other properly at each breakpoint.
   {% endcomment %}
-  {% for product in collections.frontpage.products %}
+  <div class="art-grid ajax-container">
 
-    {% assign grid_item_width = 'large--one-quarter medium--one-half' %}
-    {% include 'product-grid-item' %}
-
-  {% else %}
     {% comment %}
-      For onboarding new users to your theme, we add some default products and onboarding tutorials to help populate their store
+      Loop through products in your Frontpage collection.
+      This collection is created by default, but you must add products to it.
     {% endcomment %}
-    {% unless emptyState %}
-      {{ 'theme-onboarding.css' | global_asset_url | stylesheet_tag }}
-      {% assign emptyState = true %}
-    {% endunless %}
+    {% for product in collections.frontpage.products %}
 
-    {% include 'onboarding-featured-products' %}
+      {% assign grid_item_width = 'large--one-quarter medium--one-half' %}
+      {% include 'product-grid-item' %}
 
-  {% endfor %}
-  
-  <div class="art-grid--sizer large--one-twelfth medium--one-half"></div>
-</div>
+    {% else %}
+      {% comment %}
+        For onboarding new users to your theme, we add some default products and onboarding tutorials to help populate their store
+      {% endcomment %}
+      {% unless emptyState %}
+        {{ 'theme-onboarding.css' | global_asset_url | stylesheet_tag }}
+        {% assign emptyState = true %}
+      {% endunless %}
+
+      {% include 'onboarding-featured-products' %}
+
+    {% endfor %}
+    
+    <div class="art-grid--sizer large--one-twelfth medium--one-half"></div>
+  </div>
+
+  {% if paginate.pages > 1 %}
+    <div class="pagination">
+      {{ paginate | default_pagination | replace: '&laquo; Previous', '&larr;' | replace: 'Next &raquo;', '&rarr;' }}
+    </div>
+  {% endif %}
+
+
+{% endpaginate %}
