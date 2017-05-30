@@ -569,6 +569,14 @@ body.colorbar-fixed{
 .main-content.wrapper{
   .template-index &, .template-collection &{
     max-width:none;
+    @media (max-width:$medium) and (min-width:$small + 1) {
+      padding-left:0;
+    }
+    @media (max-width:$small) {
+      .grid__item{
+        padding-left: 0;
+      }
+    }
   }
 }
 .art-grid{
